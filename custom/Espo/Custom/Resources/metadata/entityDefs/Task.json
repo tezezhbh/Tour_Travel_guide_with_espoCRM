@@ -1,0 +1,17 @@
+{
+    "fields": {
+        "parent": {
+            "entityList": [
+                "Account",
+                "Contact",
+                "Lead",
+                "Opportunity",
+                "Case",
+                "CBooking",
+                "CDestination",
+                "CTravelAgent",
+                "CTourPackage"
+            ]
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "fields": {
+        "bookingDate": "Booking Date",
+        "numberOfPeople": "Number of People",
+        "status": "Status",
+        "paymentMethod": "Payment Method",
+        "notes": "Notes",
+        "newStatus": "NewStatus",
+        "tourPackage": "Tour Package",
+        "contact": "Contact",
+        "travelAgent": "Travel Agent"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "tourPackage": "Tour Package",
+        "contact": "Contact",
+        "travelAgent": "Travel Agent"
+    },
+    "labels": {
+        "Create CBooking": "Create Booking"
+    },
+    "options": {
+        "status": [],
+        "paymentMethod": [],
+        "newStatus": {
+            "Pending": "Pending",
+            "Confirmed": "Confirmed",
+            "Cancelled": "Cancelled"
+        }
+    }
+}

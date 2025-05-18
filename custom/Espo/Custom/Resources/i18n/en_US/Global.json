@@ -1,0 +1,14 @@
+{
+    "scopeNames": {
+        "CBooking": "Booking",
+        "CDestination": "Destination",
+        "CTravelAgent": "Travel Agent",
+        "CTourPackage": "Tour Package"
+    },
+    "scopeNamesPlural": {
+        "CBooking": "Bookings",
+        "CDestination": "Destinations",
+        "CTravelAgent": "Travel Agents",
+        "CTourPackage": "Tour Packages"
+    }
+}

@@ -1,0 +1,6 @@
+[2025-05-18 06:44:52] WARNING: E_WARNING: rename(data\tmp\tmpFC9D.tmp,data/cache/application/classmapRepositories.php): Access is denied (code: 5)
+[2025-05-18 07:20:24] WARNING: E_WARNING: rename(data\tmp\tmp8401.tmp,data/cache/application/classmapEntities.php): Access is denied (code: 5)
+[2025-05-18 07:38:34] ERROR: (409) Field 'status' already exists in 'CBooking'. :: POST /Admin/fieldManager/CBooking
+[2025-05-18 07:39:12] WARNING: E_WARNING: rename(data\tmp\tmpBB00.tmp,data/cache/application/routes.php): Access is denied (code: 5)
+[2025-05-18 07:39:12] WARNING: E_WARNING: rename(data\tmp\tmpBC2B.tmp,data/cache/application/classmapControllers.php): Access is denied (code: 5)
+[2025-05-18 08:07:38] WARNING: E_WARNING: rename(data\tmp\tmpC307.tmp,data/cache/application/routes.php): Access is denied (code: 5)

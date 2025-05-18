@@ -1,0 +1,33 @@
+{
+    "fields": {
+        "packageName": "Package Name",
+        "price": "Price",
+        "priceCurrency": "Price (Currency)",
+        "priceConverted": "Price (Converted)",
+        "duration": "Duration",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "tourType": "Tour Type",
+        "bookings": "Bookings",
+        "destination": "Destination"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "bookings": "Bookings",
+        "destination": "Destination"
+    },
+    "labels": {
+        "Create CTourPackage": "Create Tour Package"
+    },
+    "options": {
+        "tourType": {
+            "Cultural": "Cultural",
+            "Historic": "Historic",
+            "Eco": "Eco",
+            "Trekking": "Trekking",
+            "Religious": "Religious"
+        }
+    }
+}

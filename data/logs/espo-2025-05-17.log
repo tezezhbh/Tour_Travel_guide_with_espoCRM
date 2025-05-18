@@ -1,0 +1,4 @@
+[2025-05-17 19:42:48] ERROR: (409) Field 'name' already exists in 'CDestination'. :: POST /Admin/fieldManager/CDestination
+[2025-05-17 19:43:16] ERROR: (409) Field 'name' already exists in 'CDestination'. :: POST /Admin/fieldManager/CDestination
+[2025-05-17 19:44:53] ERROR: (409) Field 'description' already exists in 'CDestination'. :: POST /Admin/fieldManager/CDestination
+[2025-05-17 19:47:54] ERROR: (409) Field 'name' already exists in 'CTravelAgent'. :: POST /Admin/fieldManager/CTravelAgent

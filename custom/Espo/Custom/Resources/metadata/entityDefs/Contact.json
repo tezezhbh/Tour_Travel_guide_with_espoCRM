@@ -1,0 +1,27 @@
+{
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "asc",
+        "textFilterFields": [
+            "name",
+            "emailAddress"
+        ],
+        "fullTextSearch": false,
+        "countDisabled": false
+    },
+    "optimisticConcurrencyControl": false,
+    "links": {
+        "cBookings": {
+            "type": "hasMany",
+            "foreign": "contact",
+            "entity": "CBooking",
+            "audited": false,
+            "isCustom": true
+        }
+    },
+    "fields": {
+        "cBookings": {
+            "type": "linkMultiple"
+        }
+    }
+}

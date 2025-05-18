@@ -1,0 +1,9 @@
+{
+  "links": {
+    "calls": "Anrufe",
+    "tasks": "Aufgaben"
+  },
+  "labels": {
+    "Create CTourPackage": "Tour Package erstellen"
+  }
+}
