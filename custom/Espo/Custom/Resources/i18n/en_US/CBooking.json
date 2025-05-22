@@ -4,11 +4,11 @@
         "numberOfPeople": "Number of People",
         "status": "Status",
         "paymentMethod": "Payment Method",
-        "notes": "Notes",
-        "newStatus": "NewStatus",
         "tourPackage": "Tour Package",
         "contact": "Contact",
-        "travelAgent": "Travel Agent"
+        "travelAgent": "Travel Agent",
+        "tourInquiry": "Tour Inquiry",
+        "tourGuide": "assignedGuide"
     },
     "links": {
         "meetings": "Meetings",
@@ -16,18 +16,23 @@
         "tasks": "Tasks",
         "tourPackage": "Tour Package",
         "contact": "Contact",
-        "travelAgent": "Travel Agent"
+        "travelAgent": "Travel Agent",
+        "tourInquiry": "Tour Inquiry",
+        "tourGuide": "assignedGuide"
     },
     "labels": {
         "Create CBooking": "Create Booking"
     },
     "options": {
-        "status": [],
-        "paymentMethod": [],
-        "newStatus": {
+        "status": {
             "Pending": "Pending",
-            "Confirmed": "Confirmed",
-            "Cancelled": "Cancelled"
+            "Accepted": "Accepted",
+            "Rejected": "Rejected"
+        },
+        "paymentMethod": {
+            "Cash": "Cash",
+            "Bank": "Bank",
+            "Wallet": "Wallet"
         }
     }
 }

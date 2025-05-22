@@ -1,0 +1,10 @@
+{
+  "links": {
+    "meetings": "會議",
+    "calls": "通話",
+    "tasks": "任務"
+  },
+  "labels": {
+    "Create CTourGuide": "建立Tour Guide"
+  }
+}

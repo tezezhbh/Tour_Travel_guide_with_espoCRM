@@ -513,6 +513,20 @@ return (object) [
       'delete' => 'all',
       'create' => 'yes'
     ],
+    'CTourGuide' => (object) [
+      'read' => 'all',
+      'stream' => 'all',
+      'edit' => 'all',
+      'delete' => 'all',
+      'create' => 'yes'
+    ],
+    'CTourInquiry' => (object) [
+      'read' => 'all',
+      'stream' => 'all',
+      'edit' => 'all',
+      'delete' => 'all',
+      'create' => 'yes'
+    ],
     'CTourPackage' => (object) [
       'read' => 'all',
       'stream' => 'all',

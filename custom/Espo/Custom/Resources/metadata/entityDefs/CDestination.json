@@ -53,6 +53,9 @@
             "rowsMin": 2,
             "cutHeight": 200,
             "isCustom": true
+        },
+        "tourInquiries": {
+            "type": "linkMultiple"
         }
     },
     "links": {
@@ -99,6 +102,13 @@
             "type": "hasMany",
             "foreign": "destination",
             "entity": "CTourPackage",
+            "audited": false,
+            "isCustom": true
+        },
+        "tourInquiries": {
+            "type": "hasMany",
+            "foreign": "destination",
+            "entity": "CTourInquiry",
             "audited": false,
             "isCustom": true
         }

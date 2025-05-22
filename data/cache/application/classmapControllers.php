@@ -89,6 +89,8 @@ return [
   'Task' => 'Espo\\Modules\\Crm\\Controllers\\Task',
   'CBooking' => 'Espo\\Custom\\Controllers\\CBooking',
   'CDestination' => 'Espo\\Custom\\Controllers\\CDestination',
+  'CTourGuide' => 'Espo\\Custom\\Controllers\\CTourGuide',
+  'CTourInquiry' => 'Espo\\Custom\\Controllers\\CTourInquiry',
   'CTourPackage' => 'Espo\\Custom\\Controllers\\CTourPackage',
   'CTravelAgent' => 'Espo\\Custom\\Controllers\\CTravelAgent'
 ];

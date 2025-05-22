@@ -43,6 +43,14 @@
         "destination": {
             "layout": null,
             "selectPrimaryFilterName": null
+        },
+        "tourInquiries": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        },
+        "tourGuides": {
+            "layout": null,
+            "selectPrimaryFilterName": null
         }
     }
 }

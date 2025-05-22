@@ -10,7 +10,9 @@
                 "CBooking",
                 "CDestination",
                 "CTravelAgent",
-                "CTourPackage"
+                "CTourPackage",
+                "CTourInquiry",
+                "CTourGuide"
             ]
         }
     }

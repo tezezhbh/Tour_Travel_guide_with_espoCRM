@@ -1,0 +1,115 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                }
+            ],
+            [
+                {
+                    "name": "contact"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "dynamicLogicStyled": null,
+        "tabBreak": false,
+        "hidden": false,
+        "noteText": null,
+        "customLabel": "Customer Info"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "tourPackage"
+                }
+            ],
+            [
+                {
+                    "name": "bookingDate"
+                }
+            ],
+            [
+                {
+                    "name": "numberOfPeople"
+                }
+            ],
+            [
+                {
+                    "name": "tourGuide"
+                },
+                false
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Booking Details"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "status"
+                }
+            ],
+            [
+                {
+                    "name": "paymentMethod"
+                }
+            ],
+            [
+                {
+                    "name": "newStatus"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Payment & Status"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "travelAgent"
+                }
+            ],
+            [
+                {
+                    "name": "notes"
+                }
+            ],
+            [
+                {
+                    "name": "description"
+                }
+            ],
+            [
+                {
+                    "name": "streamUpdatedAt"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Agent & Notes"
+    }
+]

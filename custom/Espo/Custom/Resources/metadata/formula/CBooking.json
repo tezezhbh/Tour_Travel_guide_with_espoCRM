@@ -1,0 +1,3 @@
+{
+    "beforeSaveCustomScript": " agentList = ['6828d804307680842', '682b74e8cec359a05', '682ecf26b9e1e4205'];\r\ninquiryCount = record\\count('CBooking');\r\nindex = inquiryCount % array\\length(agentList);\r\nassignedUserId = array\\at(agentList, index);\r\n"
+}

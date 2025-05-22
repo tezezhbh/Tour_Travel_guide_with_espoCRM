@@ -48,6 +48,14 @@
         "travelAgent": {
             "layout": null,
             "selectPrimaryFilterName": null
+        },
+        "tourInquiry": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        },
+        "tourGuide": {
+            "layout": null,
+            "selectPrimaryFilterName": null
         }
     }
 }

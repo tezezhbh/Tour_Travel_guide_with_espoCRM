@@ -1,10 +1,10 @@
 {
     "fields": {
-        "agentname": "Name",
         "phoneNumber": "PhoneNumber",
         "tourPackage": "TourPackage",
         "travelAgent": "Travel Agent Parent",
-        "bookings": "Bookings"
+        "bookings": "Bookings",
+        "tourInquiries": "Tour Inquiries"
     },
     "links": {
         "meetings": "Meetings",
@@ -12,7 +12,8 @@
         "tasks": "Tasks",
         "tourPackage": "TourPackage",
         "travelAgent": "Travel Agent Parent",
-        "bookings": "Bookings"
+        "bookings": "Bookings",
+        "tourInquiries": "Tour Inquiries"
     },
     "labels": {
         "Create CTravelAgent": "Create Travel Agent"

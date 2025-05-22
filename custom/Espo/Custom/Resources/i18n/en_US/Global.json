@@ -3,12 +3,16 @@
         "CBooking": "Booking",
         "CDestination": "Destination",
         "CTravelAgent": "Travel Agent",
-        "CTourPackage": "Tour Package"
+        "CTourPackage": "Tour Package",
+        "CTourInquiry": "Tour Inquiry",
+        "CTourGuide": "Tour Guide"
     },
     "scopeNamesPlural": {
         "CBooking": "Bookings",
         "CDestination": "Destinations",
         "CTravelAgent": "Travel Agents",
-        "CTourPackage": "Tour Packages"
+        "CTourPackage": "Tour Packages",
+        "CTourInquiry": "Tour Inquiries",
+        "CTourGuide": "Tour Guides"
     }
 }

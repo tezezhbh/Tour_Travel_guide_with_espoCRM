@@ -9,14 +9,18 @@
         "endDate": "End Date",
         "tourType": "Tour Type",
         "bookings": "Bookings",
-        "destination": "Destination"
+        "destination": "Destination",
+        "tourInquiries": "Tour Inquiries",
+        "tourGuides": "Tour Guides"
     },
     "links": {
         "meetings": "Meetings",
         "calls": "Calls",
         "tasks": "Tasks",
         "bookings": "Bookings",
-        "destination": "Destination"
+        "destination": "Destination",
+        "tourInquiries": "Tour Inquiries",
+        "tourGuides": "Tour Guides"
     },
     "labels": {
         "Create CTourPackage": "Create Tour Package"

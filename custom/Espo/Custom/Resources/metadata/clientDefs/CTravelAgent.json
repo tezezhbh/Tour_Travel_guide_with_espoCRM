@@ -45,6 +45,10 @@
         "bookings": {
             "layout": null,
             "selectPrimaryFilterName": null
+        },
+        "tourInquiries": {
+            "layout": null,
+            "selectPrimaryFilterName": null
         }
     },
     "kanbanViewMode": false,

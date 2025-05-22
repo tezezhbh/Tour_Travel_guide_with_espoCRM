@@ -1729,7 +1729,9 @@ Field removal does not remove data from the database. Data from the database wil
       'CBooking' => 'Booking',
       'CDestination' => 'Destination',
       'CTravelAgent' => 'Travel Agent',
-      'CTourPackage' => 'Tour Package'
+      'CTourPackage' => 'Tour Package',
+      'CTourInquiry' => 'Tour Inquiry',
+      'CTourGuide' => 'Tour Guide'
     ],
     'scopeNamesPlural' => [
       'Note' => 'Notes',
@@ -1812,7 +1814,9 @@ Field removal does not remove data from the database. Data from the database wil
       'CBooking' => 'Bookings',
       'CDestination' => 'Destinations',
       'CTravelAgent' => 'Travel Agents',
-      'CTourPackage' => 'Tour Packages'
+      'CTourPackage' => 'Tour Packages',
+      'CTourInquiry' => 'Tour Inquiries',
+      'CTourGuide' => 'Tour Guides'
     ],
     'labels' => [
       'Previous Page' => 'Previous Page',
@@ -5370,11 +5374,11 @@ Leave the field empty if you need to apply the exception only for specific users
       'numberOfPeople' => 'Number of People',
       'status' => 'Status',
       'paymentMethod' => 'Payment Method',
-      'notes' => 'Notes',
-      'newStatus' => 'NewStatus',
       'tourPackage' => 'Tour Package',
       'contact' => 'Contact',
-      'travelAgent' => 'Travel Agent'
+      'travelAgent' => 'Travel Agent',
+      'tourInquiry' => 'Tour Inquiry',
+      'tourGuide' => 'assignedGuide'
     ],
     'links' => [
       'meetings' => 'Meetings',
@@ -5382,18 +5386,23 @@ Leave the field empty if you need to apply the exception only for specific users
       'tasks' => 'Tasks',
       'tourPackage' => 'Tour Package',
       'contact' => 'Contact',
-      'travelAgent' => 'Travel Agent'
+      'travelAgent' => 'Travel Agent',
+      'tourInquiry' => 'Tour Inquiry',
+      'tourGuide' => 'assignedGuide'
     ],
     'labels' => [
       'Create CBooking' => 'Create Booking'
     ],
     'options' => [
-      'status' => [],
-      'paymentMethod' => [],
-      'newStatus' => [
+      'status' => [
         'Pending' => 'Pending',
-        'Confirmed' => 'Confirmed',
-        'Cancelled' => 'Cancelled'
+        'Accepted' => 'Accepted',
+        'Rejected' => 'Rejected'
+      ],
+      'paymentMethod' => [
+        'Cash' => 'Cash',
+        'Bank' => 'Bank',
+        'Wallet' => 'Wallet'
       ]
     ]
   ],
@@ -5402,16 +5411,95 @@ Leave the field empty if you need to apply the exception only for specific users
       'dname' => 'name',
       'region' => 'Region',
       'explanations' => 'Explanations',
-      'tourPackages' => 'Tour Packages'
+      'tourPackages' => 'Tour Packages',
+      'tourInquiries' => 'Tour Inquiries'
     ],
     'links' => [
       'meetings' => 'Meetings',
       'calls' => 'Calls',
       'tasks' => 'Tasks',
-      'tourPackages' => 'Tour Packages'
+      'tourPackages' => 'Tour Packages',
+      'tourInquiries' => 'Tour Inquiries'
     ],
     'labels' => [
       'Create CDestination' => 'Create Destination'
+    ]
+  ],
+  'CTourGuide' => [
+    'fields' => [
+      'phone' => 'Phone',
+      'email' => 'Email',
+      'emailStreet' => 'Email Street',
+      'emailCity' => 'Email City',
+      'emailState' => 'Email State',
+      'emailCountry' => 'Email Country',
+      'emailPostalCode' => 'Email Postal Code',
+      'emailMap' => 'Email Map',
+      'languages' => 'Languages',
+      'bio' => 'Bio',
+      'available' => 'Available',
+      'photo' => 'Photo',
+      'tourPackages' => 'Tour Packages',
+      'bookings' => 'Bookings',
+      'gender' => 'Gender'
+    ],
+    'links' => [
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+      'tourPackages' => 'Tour Packages',
+      'bookings' => 'Bookings'
+    ],
+    'labels' => [
+      'Create CTourGuide' => 'Create Tour Guide'
+    ],
+    'options' => [
+      'languages' => [
+        '' => 'Tigrigna',
+        'Amharic' => 'Amharic',
+        'English' => 'English',
+        'Tigrigna' => 'Tigrigna',
+        'Other' => 'Other'
+      ],
+      'gender' => [
+        'male' => 'Male',
+        'Female' => 'Female',
+        'Other' => 'Other'
+      ]
+    ]
+  ],
+  'CTourInquiry' => [
+    'fields' => [
+      'email' => 'Email',
+      'phone' => 'Phone',
+      'travelDate' => 'Travel Date',
+      'groupSize' => 'Group Size',
+      'notesSpecialRequests' => 'Notes / Special Requests',
+      'status' => 'Status',
+      'tourPackage' => 'Tour Package',
+      'destination' => 'Destination',
+      'travelAgent' => 'Travel Agent',
+      'bookings' => 'Bookings'
+    ],
+    'links' => [
+      'meetings' => 'Meetings',
+      'calls' => 'Calls',
+      'tasks' => 'Tasks',
+      'tourPackage' => 'Tour Package',
+      'destination' => 'Destination',
+      'travelAgent' => 'Travel Agent',
+      'bookings' => 'Bookings'
+    ],
+    'labels' => [
+      'Create CTourInquiry' => 'Create Tour Inquiry'
+    ],
+    'options' => [
+      'status' => [
+        'Inquiry' => 'Inquiry',
+        'Contacted' => 'Contacted',
+        'Converted' => 'Converted',
+        'Dropped' => 'Dropped'
+      ]
     ]
   ],
   'CTourPackage' => [
@@ -5425,14 +5513,18 @@ Leave the field empty if you need to apply the exception only for specific users
       'endDate' => 'End Date',
       'tourType' => 'Tour Type',
       'bookings' => 'Bookings',
-      'destination' => 'Destination'
+      'destination' => 'Destination',
+      'tourInquiries' => 'Tour Inquiries',
+      'tourGuides' => 'Tour Guides'
     ],
     'links' => [
       'meetings' => 'Meetings',
       'calls' => 'Calls',
       'tasks' => 'Tasks',
       'bookings' => 'Bookings',
-      'destination' => 'Destination'
+      'destination' => 'Destination',
+      'tourInquiries' => 'Tour Inquiries',
+      'tourGuides' => 'Tour Guides'
     ],
     'labels' => [
       'Create CTourPackage' => 'Create Tour Package'
@@ -5449,11 +5541,11 @@ Leave the field empty if you need to apply the exception only for specific users
   ],
   'CTravelAgent' => [
     'fields' => [
-      'agentname' => 'Name',
       'phoneNumber' => 'PhoneNumber',
       'tourPackage' => 'TourPackage',
       'travelAgent' => 'Travel Agent Parent',
-      'bookings' => 'Bookings'
+      'bookings' => 'Bookings',
+      'tourInquiries' => 'Tour Inquiries'
     ],
     'links' => [
       'meetings' => 'Meetings',
@@ -5461,7 +5553,8 @@ Leave the field empty if you need to apply the exception only for specific users
       'tasks' => 'Tasks',
       'tourPackage' => 'TourPackage',
       'travelAgent' => 'Travel Agent Parent',
-      'bookings' => 'Bookings'
+      'bookings' => 'Bookings',
+      'tourInquiries' => 'Tour Inquiries'
     ],
     'labels' => [
       'Create CTravelAgent' => 'Create Travel Agent'

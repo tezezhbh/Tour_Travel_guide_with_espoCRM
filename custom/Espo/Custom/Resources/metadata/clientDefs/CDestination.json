@@ -40,6 +40,10 @@
         "tourPackages": {
             "layout": null,
             "selectPrimaryFilterName": null
+        },
+        "tourInquiries": {
+            "layout": null,
+            "selectPrimaryFilterName": null
         }
     }
 }

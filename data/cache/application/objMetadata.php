@@ -141,6 +141,14 @@ return (object) [
       'contactLink' => NULL,
       'accountLink' => NULL
     ],
+    'CTourGuide' => (object) [
+      'contactLink' => NULL,
+      'accountLink' => NULL
+    ],
+    'CTourInquiry' => (object) [
+      'contactLink' => NULL,
+      'accountLink' => NULL
+    ],
     'CTourPackage' => (object) [
       'contactLink' => NULL,
       'accountLink' => NULL
@@ -8708,6 +8716,14 @@ return (object) [
         'travelAgent' => (object) [
           'layout' => NULL,
           'selectPrimaryFilterName' => NULL
+        ],
+        'tourInquiry' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'tourGuide' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
         ]
       ]
     ],
@@ -8753,8 +8769,117 @@ return (object) [
         'tourPackages' => (object) [
           'layout' => NULL,
           'selectPrimaryFilterName' => NULL
+        ],
+        'tourInquiries' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
         ]
       ]
+    ],
+    'CTourGuide' => (object) [
+      'controller' => 'controllers/record',
+      'boolFilterList' => [
+        0 => 'onlyMy'
+      ],
+      'sidePanels' => (object) [
+        'detail' => [
+          0 => (object) [
+            'name' => 'activities',
+            'reference' => 'activities'
+          ],
+          1 => (object) [
+            'name' => 'history',
+            'reference' => 'history'
+          ],
+          2 => (object) [
+            'name' => 'tasks',
+            'reference' => 'tasks'
+          ]
+        ]
+      ],
+      'bottomPanels' => (object) [
+        'detail' => [
+          0 => (object) [
+            'name' => 'activities',
+            'reference' => 'activities',
+            'disabled' => true
+          ],
+          1 => (object) [
+            'name' => 'history',
+            'reference' => 'history',
+            'disabled' => true
+          ]
+        ]
+      ],
+      'color' => '#060d50',
+      'iconClass' => 'fas fa-person-shelter',
+      'relationshipPanels' => (object) [
+        'tourPackages' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'bookings' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ]
+      ]
+    ],
+    'CTourInquiry' => (object) [
+      'controller' => 'controllers/record',
+      'boolFilterList' => [
+        0 => 'onlyMy'
+      ],
+      'sidePanels' => (object) [
+        'detail' => [
+          0 => (object) [
+            'name' => 'activities',
+            'reference' => 'activities'
+          ],
+          1 => (object) [
+            'name' => 'history',
+            'reference' => 'history'
+          ],
+          2 => (object) [
+            'name' => 'tasks',
+            'reference' => 'tasks'
+          ]
+        ]
+      ],
+      'bottomPanels' => (object) [
+        'detail' => [
+          0 => (object) [
+            'name' => 'activities',
+            'reference' => 'activities',
+            'disabled' => true
+          ],
+          1 => (object) [
+            'name' => 'history',
+            'reference' => 'history',
+            'disabled' => true
+          ]
+        ]
+      ],
+      'color' => '#091b5d',
+      'iconClass' => 'fas fa-users-viewfinder',
+      'relationshipPanels' => (object) [
+        'tourPackage' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'destination' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'travelAgent' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'bookings' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ]
+      ],
+      'kanbanViewMode' => false
     ],
     'CTourPackage' => (object) [
       'controller' => 'controllers/record',
@@ -8799,6 +8924,14 @@ return (object) [
           'selectPrimaryFilterName' => NULL
         ],
         'destination' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'tourInquiries' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'tourGuides' => (object) [
           'layout' => NULL,
           'selectPrimaryFilterName' => NULL
         ]
@@ -8849,6 +8982,10 @@ return (object) [
           'selectPrimaryFilterName' => NULL
         ],
         'bookings' => (object) [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'tourInquiries' => (object) [
           'layout' => NULL,
           'selectPrimaryFilterName' => NULL
         ]
@@ -12151,7 +12288,9 @@ return (object) [
             5 => 'CBooking',
             6 => 'CDestination',
             7 => 'CTravelAgent',
-            8 => 'CTourPackage'
+            8 => 'CTourPackage',
+            9 => 'CTourInquiry',
+            10 => 'CTourGuide'
           ]
         ],
         'dateSent' => (object) [
@@ -19945,7 +20084,9 @@ return (object) [
             5 => 'CBooking',
             6 => 'CDestination',
             7 => 'CTravelAgent',
-            8 => 'CTourPackage'
+            8 => 'CTourPackage',
+            9 => 'CTourInquiry',
+            10 => 'CTourGuide'
           ]
         ],
         'account' => (object) [
@@ -23606,7 +23747,9 @@ return (object) [
             5 => 'CBooking',
             6 => 'CDestination',
             7 => 'CTravelAgent',
-            8 => 'CTourPackage'
+            8 => 'CTourPackage',
+            9 => 'CTourInquiry',
+            10 => 'CTourGuide'
           ]
         ],
         'account' => (object) [
@@ -25278,7 +25421,9 @@ return (object) [
             5 => 'CBooking',
             6 => 'CDestination',
             7 => 'CTravelAgent',
-            8 => 'CTourPackage'
+            8 => 'CTourPackage',
+            9 => 'CTourInquiry',
+            10 => 'CTourGuide'
           ]
         ],
         'account' => (object) [
@@ -25463,7 +25608,11 @@ return (object) [
         'assignedUser' => (object) [
           'type' => 'link',
           'required' => false,
-          'view' => 'views/fields/assigned-user'
+          'view' => 'views/fields/assigned-user',
+          'defaultAttributes' => (object) [
+            'assignedUserId' => '6828d804307680842',
+            'assignedUserName' => 'Admin'
+          ]
         ],
         'teams' => (object) [
           'type' => 'linkMultiple',
@@ -25480,37 +25629,35 @@ return (object) [
         ],
         'status' => (object) [
           'type' => 'enum',
-          'style' => [],
+          'style' => (object) [
+            'Pending' => NULL,
+            'Accepted' => NULL,
+            'Rejected' => NULL
+          ],
           'maxLength' => 100,
-          'isCustom' => true
+          'isCustom' => true,
+          'options' => [
+            0 => 'Pending',
+            1 => 'Accepted',
+            2 => 'Rejected'
+          ],
+          'default' => 'Pending'
         ],
         'paymentMethod' => (object) [
           'type' => 'enum',
-          'style' => [],
-          'maxLength' => 100,
-          'isCustom' => true
-        ],
-        'notes' => (object) [
-          'type' => 'text',
-          'rowsMin' => 2,
-          'cutHeight' => 200,
-          'isCustom' => true
-        ],
-        'newStatus' => (object) [
-          'type' => 'enum',
-          'options' => [
-            0 => 'Pending',
-            1 => 'Confirmed',
-            2 => 'Cancelled'
-          ],
-          'default' => 'Pending',
           'style' => (object) [
-            'Pending' => NULL,
-            'Confirmed' => NULL,
-            'Cancelled' => NULL
+            'Cash' => NULL,
+            'Bank' => NULL,
+            'Wallet' => NULL
           ],
           'maxLength' => 100,
-          'isCustom' => true
+          'isCustom' => true,
+          'options' => [
+            0 => 'Cash',
+            1 => 'Bank',
+            2 => 'Wallet'
+          ],
+          'default' => 'Cash'
         ],
         'tourPackage' => (object) [
           'type' => 'link'
@@ -25519,6 +25666,12 @@ return (object) [
           'type' => 'link'
         ],
         'travelAgent' => (object) [
+          'type' => 'link'
+        ],
+        'tourInquiry' => (object) [
+          'type' => 'link'
+        ],
+        'tourGuide' => (object) [
           'type' => 'link'
         ],
         'streamUpdatedAt' => (object) [
@@ -25585,6 +25738,20 @@ return (object) [
           'type' => 'belongsTo',
           'foreign' => 'bookings',
           'entity' => 'CTravelAgent',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'tourInquiry' => (object) [
+          'type' => 'belongsTo',
+          'foreign' => 'bookings',
+          'entity' => 'CTourInquiry',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'tourGuide' => (object) [
+          'type' => 'belongsTo',
+          'foreign' => 'bookings',
+          'entity' => 'CTourGuide',
           'audited' => false,
           'isCustom' => true
         ]
@@ -25684,6 +25851,9 @@ return (object) [
           'cutHeight' => 200,
           'isCustom' => true
         ],
+        'tourInquiries' => (object) [
+          'type' => 'linkMultiple'
+        ],
         'streamUpdatedAt' => (object) [
           'type' => 'datetime',
           'readOnly' => true,
@@ -25736,6 +25906,463 @@ return (object) [
           'entity' => 'CTourPackage',
           'audited' => false,
           'isCustom' => true
+        ],
+        'tourInquiries' => (object) [
+          'type' => 'hasMany',
+          'foreign' => 'destination',
+          'entity' => 'CTourInquiry',
+          'audited' => false,
+          'isCustom' => true
+        ]
+      ],
+      'collection' => (object) [
+        'orderBy' => 'createdAt',
+        'order' => 'desc',
+        'textFilterFields' => [
+          0 => 'name'
+        ],
+        'fullTextSearch' => false,
+        'countDisabled' => false,
+        'sortBy' => 'createdAt',
+        'asc' => false
+      ],
+      'indexes' => (object) [
+        'name' => (object) [
+          'columns' => [
+            0 => 'name',
+            1 => 'deleted'
+          ]
+        ],
+        'assignedUser' => (object) [
+          'columns' => [
+            0 => 'assignedUserId',
+            1 => 'deleted'
+          ]
+        ],
+        'createdAt' => (object) [
+          'columns' => [
+            0 => 'createdAt'
+          ]
+        ],
+        'createdAtId' => (object) [
+          'unique' => true,
+          'columns' => [
+            0 => 'createdAt',
+            1 => 'id'
+          ]
+        ]
+      ],
+      'optimisticConcurrencyControl' => false
+    ],
+    'CTourGuide' => (object) [
+      'fields' => (object) [
+        'name' => (object) [
+          'type' => 'varchar',
+          'required' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'description' => (object) [
+          'type' => 'text'
+        ],
+        'createdAt' => (object) [
+          'type' => 'datetime',
+          'readOnly' => true
+        ],
+        'modifiedAt' => (object) [
+          'type' => 'datetime',
+          'readOnly' => true
+        ],
+        'createdBy' => (object) [
+          'type' => 'link',
+          'readOnly' => true,
+          'view' => 'views/fields/user'
+        ],
+        'modifiedBy' => (object) [
+          'type' => 'link',
+          'readOnly' => true,
+          'view' => 'views/fields/user'
+        ],
+        'assignedUser' => (object) [
+          'type' => 'link',
+          'required' => false,
+          'view' => 'views/fields/assigned-user'
+        ],
+        'teams' => (object) [
+          'type' => 'linkMultiple',
+          'view' => 'views/fields/teams'
+        ],
+        'phone' => (object) [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'options' => [],
+          'isCustom' => true
+        ],
+        'email' => (object) [
+          'type' => 'address',
+          'isCustom' => true
+        ],
+        'languages' => (object) [
+          'type' => 'multiEnum',
+          'storeArrayValues' => true,
+          'default' => [],
+          'options' => [
+            0 => '',
+            1 => 'Amharic',
+            2 => 'English',
+            3 => 'Tigrigna',
+            4 => 'Other'
+          ],
+          'style' => (object) [
+            '' => NULL,
+            'Amharic' => NULL,
+            'English' => NULL,
+            'Tigrigna' => NULL,
+            'Other' => NULL
+          ],
+          'isCustom' => true
+        ],
+        'bio' => (object) [
+          'type' => 'text',
+          'rowsMin' => 2,
+          'cutHeight' => 200,
+          'isCustom' => true
+        ],
+        'available' => (object) [
+          'notNull' => true,
+          'type' => 'bool',
+          'isCustom' => true
+        ],
+        'photo' => (object) [
+          'type' => 'image',
+          'previewSize' => 'small',
+          'isCustom' => true
+        ],
+        'gender' => (object) [
+          'type' => 'enum',
+          'options' => [
+            0 => 'male',
+            1 => 'Female',
+            2 => 'Other'
+          ],
+          'style' => (object) [
+            'male' => NULL,
+            'Female' => NULL,
+            'Other' => NULL
+          ],
+          'default' => 'male',
+          'maxLength' => 100,
+          'isCustom' => true
+        ],
+        'emailStreet' => (object) [
+          'type' => 'text',
+          'maxLength' => 255,
+          'dbType' => 'varchar'
+        ],
+        'emailCity' => (object) [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'view' => 'views/fields/address-city',
+          'customizationOptionsDisabled' => true,
+          'customizationOptionsReferenceDisabled' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'emailState' => (object) [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'view' => 'views/fields/address-state',
+          'customizationOptionsDisabled' => true,
+          'customizationOptionsReferenceDisabled' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'emailCountry' => (object) [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'view' => 'views/fields/address-country',
+          'customizationOptionsDisabled' => true,
+          'customizationOptionsReferenceDisabled' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'emailPostalCode' => (object) [
+          'type' => 'varchar',
+          'maxLength' => 40,
+          'pattern' => '$noBadCharacters'
+        ],
+        'emailMap' => (object) [
+          'type' => 'map',
+          'notStorable' => true,
+          'orderDisabled' => true,
+          'readOnly' => true,
+          'layoutListDisabled' => true,
+          'provider' => 'Google',
+          'height' => 300,
+          'exportDisabled' => true,
+          'importDisabled' => true
+        ],
+        'streamUpdatedAt' => (object) [
+          'type' => 'datetime',
+          'readOnly' => true,
+          'customizationReadOnlyDisabled' => true
+        ]
+      ],
+      'links' => (object) [
+        'createdBy' => (object) [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'modifiedBy' => (object) [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'assignedUser' => (object) [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'teams' => (object) [
+          'type' => 'hasMany',
+          'entity' => 'Team',
+          'relationName' => 'entityTeam',
+          'layoutRelationshipsDisabled' => true
+        ],
+        'meetings' => (object) [
+          'type' => 'hasMany',
+          'entity' => 'Meeting',
+          'foreign' => 'parent'
+        ],
+        'calls' => (object) [
+          'type' => 'hasMany',
+          'entity' => 'Call',
+          'foreign' => 'parent'
+        ],
+        'tasks' => (object) [
+          'type' => 'hasChildren',
+          'entity' => 'Task',
+          'foreign' => 'parent'
+        ],
+        'emails' => (object) [
+          'type' => 'hasChildren',
+          'entity' => 'Email',
+          'foreign' => 'parent',
+          'layoutRelationshipsDisabled' => true
+        ],
+        'photo' => (object) [
+          'type' => 'belongsTo',
+          'entity' => 'Attachment',
+          'skipOrmDefs' => true,
+          'utility' => true
+        ],
+        'tourPackages' => (object) [
+          'type' => 'hasMany',
+          'relationName' => 'cTourGuideTourPackage',
+          'foreign' => 'tourGuides',
+          'entity' => 'CTourPackage',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'bookings' => (object) [
+          'type' => 'hasMany',
+          'foreign' => 'tourGuide',
+          'entity' => 'CBooking',
+          'audited' => false,
+          'isCustom' => true
+        ]
+      ],
+      'collection' => (object) [
+        'orderBy' => 'createdAt',
+        'order' => 'desc',
+        'sortBy' => 'createdAt',
+        'asc' => false
+      ],
+      'indexes' => (object) [
+        'name' => (object) [
+          'columns' => [
+            0 => 'name',
+            1 => 'deleted'
+          ]
+        ],
+        'assignedUser' => (object) [
+          'columns' => [
+            0 => 'assignedUserId',
+            1 => 'deleted'
+          ]
+        ],
+        'createdAt' => (object) [
+          'columns' => [
+            0 => 'createdAt'
+          ]
+        ],
+        'createdAtId' => (object) [
+          'unique' => true,
+          'columns' => [
+            0 => 'createdAt',
+            1 => 'id'
+          ]
+        ]
+      ]
+    ],
+    'CTourInquiry' => (object) [
+      'fields' => (object) [
+        'name' => (object) [
+          'type' => 'varchar',
+          'required' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'description' => (object) [
+          'type' => 'text'
+        ],
+        'createdAt' => (object) [
+          'type' => 'datetime',
+          'readOnly' => true
+        ],
+        'modifiedAt' => (object) [
+          'type' => 'datetime',
+          'readOnly' => true
+        ],
+        'createdBy' => (object) [
+          'type' => 'link',
+          'readOnly' => true,
+          'view' => 'views/fields/user'
+        ],
+        'modifiedBy' => (object) [
+          'type' => 'link',
+          'readOnly' => true,
+          'view' => 'views/fields/user'
+        ],
+        'assignedUser' => (object) [
+          'type' => 'link',
+          'required' => false,
+          'view' => 'views/fields/assigned-user'
+        ],
+        'teams' => (object) [
+          'type' => 'linkMultiple',
+          'view' => 'views/fields/teams'
+        ],
+        'email' => (object) [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'options' => [],
+          'isCustom' => true
+        ],
+        'phone' => (object) [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'options' => [],
+          'isCustom' => true
+        ],
+        'travelDate' => (object) [
+          'notNull' => false,
+          'type' => 'date',
+          'isCustom' => true
+        ],
+        'groupSize' => (object) [
+          'type' => 'int',
+          'isCustom' => true
+        ],
+        'notesSpecialRequests' => (object) [
+          'type' => 'text',
+          'rowsMin' => 2,
+          'cutHeight' => 200,
+          'isCustom' => true
+        ],
+        'status' => (object) [
+          'type' => 'enum',
+          'style' => (object) [
+            'Inquiry' => NULL,
+            'Contacted' => NULL,
+            'Converted' => NULL,
+            'Dropped' => NULL
+          ],
+          'maxLength' => 100,
+          'isCustom' => true,
+          'options' => [
+            0 => 'Inquiry',
+            1 => 'Contacted',
+            2 => 'Converted',
+            3 => 'Dropped'
+          ],
+          'default' => 'Inquiry'
+        ],
+        'tourPackage' => (object) [
+          'type' => 'link'
+        ],
+        'destination' => (object) [
+          'type' => 'link'
+        ],
+        'travelAgent' => (object) [
+          'type' => 'link'
+        ],
+        'streamUpdatedAt' => (object) [
+          'type' => 'datetime',
+          'readOnly' => true,
+          'customizationReadOnlyDisabled' => true
+        ]
+      ],
+      'links' => (object) [
+        'createdBy' => (object) [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'modifiedBy' => (object) [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'assignedUser' => (object) [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'teams' => (object) [
+          'type' => 'hasMany',
+          'entity' => 'Team',
+          'relationName' => 'entityTeam',
+          'layoutRelationshipsDisabled' => true
+        ],
+        'meetings' => (object) [
+          'type' => 'hasMany',
+          'entity' => 'Meeting',
+          'foreign' => 'parent'
+        ],
+        'calls' => (object) [
+          'type' => 'hasMany',
+          'entity' => 'Call',
+          'foreign' => 'parent'
+        ],
+        'tasks' => (object) [
+          'type' => 'hasChildren',
+          'entity' => 'Task',
+          'foreign' => 'parent'
+        ],
+        'emails' => (object) [
+          'type' => 'hasChildren',
+          'entity' => 'Email',
+          'foreign' => 'parent',
+          'layoutRelationshipsDisabled' => true
+        ],
+        'tourPackage' => (object) [
+          'type' => 'belongsTo',
+          'foreign' => 'tourInquiries',
+          'entity' => 'CTourPackage',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'destination' => (object) [
+          'type' => 'belongsTo',
+          'foreign' => 'tourInquiries',
+          'entity' => 'CDestination',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'travelAgent' => (object) [
+          'type' => 'belongsTo',
+          'foreign' => 'tourInquiries',
+          'entity' => 'CTravelAgent',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'bookings' => (object) [
+          'type' => 'hasMany',
+          'foreign' => 'tourInquiry',
+          'entity' => 'CBooking',
+          'audited' => false,
+          'isCustom' => true
         ]
       ],
       'collection' => (object) [
@@ -25778,6 +26405,11 @@ return (object) [
       'optimisticConcurrencyControl' => false
     ],
     'CTourPackage' => (object) [
+      'creatable' => true,
+      'updatable' => true,
+      'removable' => true,
+      'importable' => true,
+      'searchable' => true,
       'fields' => (object) [
         'name' => (object) [
           'type' => 'varchar',
@@ -25866,6 +26498,9 @@ return (object) [
         'destination' => (object) [
           'type' => 'link'
         ],
+        'tourInquiries' => (object) [
+          'type' => 'linkMultiple'
+        ],
         'priceCurrency' => (object) [
           'type' => 'enum',
           'view' => 'views/fields/currency-list',
@@ -25950,6 +26585,21 @@ return (object) [
           'entity' => 'CDestination',
           'audited' => false,
           'isCustom' => true
+        ],
+        'tourInquiries' => (object) [
+          'type' => 'hasMany',
+          'foreign' => 'tourPackage',
+          'entity' => 'CTourInquiry',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'tourGuides' => (object) [
+          'type' => 'hasMany',
+          'relationName' => 'cTourGuideTourPackage',
+          'foreign' => 'tourPackages',
+          'entity' => 'CTourGuide',
+          'audited' => false,
+          'isCustom' => true
         ]
       ],
       'collection' => (object) [
@@ -26022,12 +26672,6 @@ return (object) [
           'type' => 'linkMultiple',
           'view' => 'views/fields/teams'
         ],
-        'agentname' => (object) [
-          'type' => 'text',
-          'rowsMin' => 2,
-          'cutHeight' => 200,
-          'isCustom' => true
-        ],
         'phoneNumber' => (object) [
           'type' => 'varchar',
           'maxLength' => 100,
@@ -26041,6 +26685,9 @@ return (object) [
           'type' => 'link'
         ],
         'bookings' => (object) [
+          'type' => 'linkMultiple'
+        ],
+        'tourInquiries' => (object) [
           'type' => 'linkMultiple'
         ],
         'streamUpdatedAt' => (object) [
@@ -26092,7 +26739,7 @@ return (object) [
         'tourPackage' => (object) [
           'type' => 'hasMany',
           'foreign' => 'travelAgent',
-          'entity' => 'CTravelAgent',
+          'entity' => 'CTourPackage',
           'audited' => false,
           'isCustom' => true
         ],
@@ -26107,6 +26754,13 @@ return (object) [
           'type' => 'hasMany',
           'foreign' => 'travelAgent',
           'entity' => 'CBooking',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'tourInquiries' => (object) [
+          'type' => 'hasMany',
+          'foreign' => 'travelAgent',
+          'entity' => 'CTourInquiry',
           'audited' => false,
           'isCustom' => true
         ]
@@ -31379,6 +32033,53 @@ return (object) [
       'afterLinkHookClassNameList' => [],
       'afterUnlinkHookClassNameList' => []
     ],
+    'CTourGuide' => (object) [
+      'duplicateWhereBuilderClassName' => 'Espo\\Classes\\DuplicateWhereBuilders\\General',
+      'readLoaderClassNameList' => [],
+      'listLoaderClassNameList' => [],
+      'saverClassNameList' => [],
+      'selectApplierClassNameList' => [],
+      'createInputFilterClassNameList' => [],
+      'updateInputFilterClassNameList' => [],
+      'outputFilterClassNameList' => [],
+      'beforeReadHookClassNameList' => [],
+      'earlyBeforeCreateHookClassNameList' => [],
+      'beforeCreateHookClassNameList' => [],
+      'earlyBeforeUpdateHookClassNameList' => [],
+      'beforeUpdateHookClassNameList' => [],
+      'beforeDeleteHookClassNameList' => [],
+      'afterCreateHookClassNameList' => [],
+      'afterUpdateHookClassNameList' => [],
+      'afterDeleteHookClassNameList' => [],
+      'beforeLinkHookClassNameList' => [],
+      'beforeUnlinkHookClassNameList' => [],
+      'afterLinkHookClassNameList' => [],
+      'afterUnlinkHookClassNameList' => []
+    ],
+    'CTourInquiry' => (object) [
+      'duplicateWhereBuilderClassName' => 'Espo\\Classes\\DuplicateWhereBuilders\\General',
+      'updateDuplicateCheck' => false,
+      'readLoaderClassNameList' => [],
+      'listLoaderClassNameList' => [],
+      'saverClassNameList' => [],
+      'selectApplierClassNameList' => [],
+      'createInputFilterClassNameList' => [],
+      'updateInputFilterClassNameList' => [],
+      'outputFilterClassNameList' => [],
+      'beforeReadHookClassNameList' => [],
+      'earlyBeforeCreateHookClassNameList' => [],
+      'beforeCreateHookClassNameList' => [],
+      'earlyBeforeUpdateHookClassNameList' => [],
+      'beforeUpdateHookClassNameList' => [],
+      'beforeDeleteHookClassNameList' => [],
+      'afterCreateHookClassNameList' => [],
+      'afterUpdateHookClassNameList' => [],
+      'afterDeleteHookClassNameList' => [],
+      'beforeLinkHookClassNameList' => [],
+      'beforeUnlinkHookClassNameList' => [],
+      'afterLinkHookClassNameList' => [],
+      'afterUnlinkHookClassNameList' => []
+    ],
     'CTourPackage' => (object) [
       'duplicateWhereBuilderClassName' => 'Espo\\Classes\\DuplicateWhereBuilders\\General',
       'readLoaderClassNameList' => [],
@@ -32385,6 +33086,59 @@ return (object) [
       'collaborators' => false,
       'assignedUsers' => false
     ],
+    'CTourGuide' => (object) [
+      'entity' => true,
+      'layouts' => true,
+      'tab' => true,
+      'acl' => true,
+      'aclPortal' => true,
+      'aclPortalLevelList' => [
+        0 => 'all',
+        1 => 'account',
+        2 => 'contact',
+        3 => 'own',
+        4 => 'no'
+      ],
+      'customizable' => true,
+      'importable' => true,
+      'notifications' => true,
+      'stream' => true,
+      'disabled' => false,
+      'type' => 'BasePlus',
+      'module' => 'Custom',
+      'object' => true,
+      'isCustom' => true
+    ],
+    'CTourInquiry' => (object) [
+      'entity' => true,
+      'layouts' => true,
+      'tab' => true,
+      'acl' => true,
+      'aclPortal' => true,
+      'aclPortalLevelList' => [
+        0 => 'all',
+        1 => 'account',
+        2 => 'contact',
+        3 => 'own',
+        4 => 'no'
+      ],
+      'customizable' => true,
+      'importable' => true,
+      'notifications' => true,
+      'stream' => true,
+      'disabled' => false,
+      'type' => 'BasePlus',
+      'module' => 'Custom',
+      'object' => true,
+      'isCustom' => true,
+      'statusField' => 'status',
+      'kanbanStatusIgnoreList' => NULL,
+      'stars' => false,
+      'preserveAuditLog' => false,
+      'duplicateCheckFieldList' => [],
+      'collaborators' => false,
+      'assignedUsers' => false
+    ],
     'CTourPackage' => (object) [
       'entity' => true,
       'layouts' => true,
@@ -33160,6 +33914,32 @@ return (object) [
           1 => 'Canceled'
         ]
       ]
+    ]
+  ],
+  'formula' => (object) [
+    'CBooking' => (object) [
+      'beforeSaveCustomScript' => ' agentList = [\'6828d804307680842\', \'682b74e8cec359a05\', \'682ecf26b9e1e4205\'];
+inquiryCount = record\\count(\'CBooking\');
+index = inquiryCount % array\\length(agentList);
+assignedUserId = array\\at(agentList, index);
+'
+    ],
+    'CTourInquiry' => (object) [
+      'beforeSaveCustomScript' => 'assignedUserId = \'6828d804307680842\';// assing di
+
+
+ifThen(
+  assignedUserId != null,
+  sendEmail(
+    assignedUserId,
+    \'New Tour Inquiry Assigned\',
+    \'A new inquiry has been assigned to you. Please log in and follow up.\' + "\\n\\n" +
+    \'Inquiry Name: \' + name + "\\n" +
+    \'Preferred Travel Date: \' + string(travelDate) + "\\n" +
+    \'Contact Email: \' + email
+  )
+);
+'
     ]
   ]
 ];

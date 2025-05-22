@@ -1,0 +1,43 @@
+{
+    "fields": {
+        "phone": "Phone",
+        "email": "Email",
+        "emailStreet": "Email Street",
+        "emailCity": "Email City",
+        "emailState": "Email State",
+        "emailCountry": "Email Country",
+        "emailPostalCode": "Email Postal Code",
+        "emailMap": "Email Map",
+        "languages": "Languages",
+        "bio": "Bio",
+        "available": "Available",
+        "photo": "Photo",
+        "tourPackages": "Tour Packages",
+        "bookings": "Bookings",
+        "gender": "Gender"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "tourPackages": "Tour Packages",
+        "bookings": "Bookings"
+    },
+    "labels": {
+        "Create CTourGuide": "Create Tour Guide"
+    },
+    "options": {
+        "languages": {
+            "": "Tigrigna",
+            "Amharic": "Amharic",
+            "English": "English",
+            "Tigrigna": "Tigrigna",
+            "Other": "Other"
+        },
+        "gender": {
+            "male": "Male",
+            "Female": "Female",
+            "Other": "Other"
+        }
+    }
+}

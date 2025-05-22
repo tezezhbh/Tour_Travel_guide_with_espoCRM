@@ -1,0 +1,11 @@
+[2025-05-22 14:37:35] CRITICAL: (500) Before-save formula script failed. Could not parse. :: E:\Xamp\Install\htdocs\EspoCRM-9.1.2\application\Espo\Core\Formula\Exceptions\SyntaxError.php(48)
+[2025-05-22 14:59:41] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 17:28:31] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 17:28:31] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 17:29:01] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 17:29:01] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 17:37:34] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 17:37:51] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 17:38:06] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 17:38:20] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 17:38:34] ERROR: WebSocketSubmission: Class "ZMQContext" not found

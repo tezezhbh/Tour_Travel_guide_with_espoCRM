@@ -1,0 +1,117 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                }
+            ],
+            [
+                {
+                    "name": "tourType"
+                }
+            ],
+            [
+                {
+                    "name": "destination"
+                }
+            ],
+            [
+                {
+                    "name": "packageName"
+                },
+                false
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "dynamicLogicStyled": null,
+        "tabBreak": false,
+        "hidden": false,
+        "noteText": null,
+        "customLabel": "Package Info"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "startDate"
+                }
+            ],
+            [
+                {
+                    "name": "endDate"
+                }
+            ],
+            [
+                {
+                    "name": "duration"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Schedule"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "price"
+                }
+            ],
+            [
+                {
+                    "name": "priceConverted"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Pricing"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "description"
+                }
+            ],
+            [
+                {
+                    "name": "streamUpdatedAt"
+                }
+            ],
+            [
+                {
+                    "name": "tourInquiries"
+                },
+                false
+            ],
+            [
+                {
+                    "name": "bookings"
+                },
+                false
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Description"
+    }
+]

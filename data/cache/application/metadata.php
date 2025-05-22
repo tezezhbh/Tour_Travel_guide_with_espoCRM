@@ -141,6 +141,14 @@ return [
       'contactLink' => NULL,
       'accountLink' => NULL
     ],
+    'CTourGuide' => [
+      'contactLink' => NULL,
+      'accountLink' => NULL
+    ],
+    'CTourInquiry' => [
+      'contactLink' => NULL,
+      'accountLink' => NULL
+    ],
     'CTourPackage' => [
       'contactLink' => NULL,
       'accountLink' => NULL
@@ -8708,6 +8716,14 @@ return [
         'travelAgent' => [
           'layout' => NULL,
           'selectPrimaryFilterName' => NULL
+        ],
+        'tourInquiry' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'tourGuide' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
         ]
       ]
     ],
@@ -8753,8 +8769,117 @@ return [
         'tourPackages' => [
           'layout' => NULL,
           'selectPrimaryFilterName' => NULL
+        ],
+        'tourInquiries' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
         ]
       ]
+    ],
+    'CTourGuide' => [
+      'controller' => 'controllers/record',
+      'boolFilterList' => [
+        0 => 'onlyMy'
+      ],
+      'sidePanels' => [
+        'detail' => [
+          0 => [
+            'name' => 'activities',
+            'reference' => 'activities'
+          ],
+          1 => [
+            'name' => 'history',
+            'reference' => 'history'
+          ],
+          2 => [
+            'name' => 'tasks',
+            'reference' => 'tasks'
+          ]
+        ]
+      ],
+      'bottomPanels' => [
+        'detail' => [
+          0 => [
+            'name' => 'activities',
+            'reference' => 'activities',
+            'disabled' => true
+          ],
+          1 => [
+            'name' => 'history',
+            'reference' => 'history',
+            'disabled' => true
+          ]
+        ]
+      ],
+      'color' => '#060d50',
+      'iconClass' => 'fas fa-person-shelter',
+      'relationshipPanels' => [
+        'tourPackages' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'bookings' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ]
+      ]
+    ],
+    'CTourInquiry' => [
+      'controller' => 'controllers/record',
+      'boolFilterList' => [
+        0 => 'onlyMy'
+      ],
+      'sidePanels' => [
+        'detail' => [
+          0 => [
+            'name' => 'activities',
+            'reference' => 'activities'
+          ],
+          1 => [
+            'name' => 'history',
+            'reference' => 'history'
+          ],
+          2 => [
+            'name' => 'tasks',
+            'reference' => 'tasks'
+          ]
+        ]
+      ],
+      'bottomPanels' => [
+        'detail' => [
+          0 => [
+            'name' => 'activities',
+            'reference' => 'activities',
+            'disabled' => true
+          ],
+          1 => [
+            'name' => 'history',
+            'reference' => 'history',
+            'disabled' => true
+          ]
+        ]
+      ],
+      'color' => '#091b5d',
+      'iconClass' => 'fas fa-users-viewfinder',
+      'relationshipPanels' => [
+        'tourPackage' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'destination' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'travelAgent' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'bookings' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ]
+      ],
+      'kanbanViewMode' => false
     ],
     'CTourPackage' => [
       'controller' => 'controllers/record',
@@ -8799,6 +8924,14 @@ return [
           'selectPrimaryFilterName' => NULL
         ],
         'destination' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'tourInquiries' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'tourGuides' => [
           'layout' => NULL,
           'selectPrimaryFilterName' => NULL
         ]
@@ -8849,6 +8982,10 @@ return [
           'selectPrimaryFilterName' => NULL
         ],
         'bookings' => [
+          'layout' => NULL,
+          'selectPrimaryFilterName' => NULL
+        ],
+        'tourInquiries' => [
           'layout' => NULL,
           'selectPrimaryFilterName' => NULL
         ]
@@ -12151,7 +12288,9 @@ return [
             5 => 'CBooking',
             6 => 'CDestination',
             7 => 'CTravelAgent',
-            8 => 'CTourPackage'
+            8 => 'CTourPackage',
+            9 => 'CTourInquiry',
+            10 => 'CTourGuide'
           ]
         ],
         'dateSent' => [
@@ -19945,7 +20084,9 @@ return [
             5 => 'CBooking',
             6 => 'CDestination',
             7 => 'CTravelAgent',
-            8 => 'CTourPackage'
+            8 => 'CTourPackage',
+            9 => 'CTourInquiry',
+            10 => 'CTourGuide'
           ]
         ],
         'account' => [
@@ -23606,7 +23747,9 @@ return [
             5 => 'CBooking',
             6 => 'CDestination',
             7 => 'CTravelAgent',
-            8 => 'CTourPackage'
+            8 => 'CTourPackage',
+            9 => 'CTourInquiry',
+            10 => 'CTourGuide'
           ]
         ],
         'account' => [
@@ -25278,7 +25421,9 @@ return [
             5 => 'CBooking',
             6 => 'CDestination',
             7 => 'CTravelAgent',
-            8 => 'CTourPackage'
+            8 => 'CTourPackage',
+            9 => 'CTourInquiry',
+            10 => 'CTourGuide'
           ]
         ],
         'account' => [
@@ -25463,7 +25608,11 @@ return [
         'assignedUser' => [
           'type' => 'link',
           'required' => false,
-          'view' => 'views/fields/assigned-user'
+          'view' => 'views/fields/assigned-user',
+          'defaultAttributes' => [
+            'assignedUserId' => '6828d804307680842',
+            'assignedUserName' => 'Admin'
+          ]
         ],
         'teams' => [
           'type' => 'linkMultiple',
@@ -25480,37 +25629,35 @@ return [
         ],
         'status' => [
           'type' => 'enum',
-          'style' => [],
+          'style' => [
+            'Pending' => NULL,
+            'Accepted' => NULL,
+            'Rejected' => NULL
+          ],
           'maxLength' => 100,
-          'isCustom' => true
+          'isCustom' => true,
+          'options' => [
+            0 => 'Pending',
+            1 => 'Accepted',
+            2 => 'Rejected'
+          ],
+          'default' => 'Pending'
         ],
         'paymentMethod' => [
           'type' => 'enum',
-          'style' => [],
-          'maxLength' => 100,
-          'isCustom' => true
-        ],
-        'notes' => [
-          'type' => 'text',
-          'rowsMin' => 2,
-          'cutHeight' => 200,
-          'isCustom' => true
-        ],
-        'newStatus' => [
-          'type' => 'enum',
-          'options' => [
-            0 => 'Pending',
-            1 => 'Confirmed',
-            2 => 'Cancelled'
-          ],
-          'default' => 'Pending',
           'style' => [
-            'Pending' => NULL,
-            'Confirmed' => NULL,
-            'Cancelled' => NULL
+            'Cash' => NULL,
+            'Bank' => NULL,
+            'Wallet' => NULL
           ],
           'maxLength' => 100,
-          'isCustom' => true
+          'isCustom' => true,
+          'options' => [
+            0 => 'Cash',
+            1 => 'Bank',
+            2 => 'Wallet'
+          ],
+          'default' => 'Cash'
         ],
         'tourPackage' => [
           'type' => 'link'
@@ -25519,6 +25666,12 @@ return [
           'type' => 'link'
         ],
         'travelAgent' => [
+          'type' => 'link'
+        ],
+        'tourInquiry' => [
+          'type' => 'link'
+        ],
+        'tourGuide' => [
           'type' => 'link'
         ],
         'streamUpdatedAt' => [
@@ -25585,6 +25738,20 @@ return [
           'type' => 'belongsTo',
           'foreign' => 'bookings',
           'entity' => 'CTravelAgent',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'tourInquiry' => [
+          'type' => 'belongsTo',
+          'foreign' => 'bookings',
+          'entity' => 'CTourInquiry',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'tourGuide' => [
+          'type' => 'belongsTo',
+          'foreign' => 'bookings',
+          'entity' => 'CTourGuide',
           'audited' => false,
           'isCustom' => true
         ]
@@ -25684,6 +25851,9 @@ return [
           'cutHeight' => 200,
           'isCustom' => true
         ],
+        'tourInquiries' => [
+          'type' => 'linkMultiple'
+        ],
         'streamUpdatedAt' => [
           'type' => 'datetime',
           'readOnly' => true,
@@ -25736,6 +25906,463 @@ return [
           'entity' => 'CTourPackage',
           'audited' => false,
           'isCustom' => true
+        ],
+        'tourInquiries' => [
+          'type' => 'hasMany',
+          'foreign' => 'destination',
+          'entity' => 'CTourInquiry',
+          'audited' => false,
+          'isCustom' => true
+        ]
+      ],
+      'collection' => [
+        'orderBy' => 'createdAt',
+        'order' => 'desc',
+        'textFilterFields' => [
+          0 => 'name'
+        ],
+        'fullTextSearch' => false,
+        'countDisabled' => false,
+        'sortBy' => 'createdAt',
+        'asc' => false
+      ],
+      'indexes' => [
+        'name' => [
+          'columns' => [
+            0 => 'name',
+            1 => 'deleted'
+          ]
+        ],
+        'assignedUser' => [
+          'columns' => [
+            0 => 'assignedUserId',
+            1 => 'deleted'
+          ]
+        ],
+        'createdAt' => [
+          'columns' => [
+            0 => 'createdAt'
+          ]
+        ],
+        'createdAtId' => [
+          'unique' => true,
+          'columns' => [
+            0 => 'createdAt',
+            1 => 'id'
+          ]
+        ]
+      ],
+      'optimisticConcurrencyControl' => false
+    ],
+    'CTourGuide' => [
+      'fields' => [
+        'name' => [
+          'type' => 'varchar',
+          'required' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'description' => [
+          'type' => 'text'
+        ],
+        'createdAt' => [
+          'type' => 'datetime',
+          'readOnly' => true
+        ],
+        'modifiedAt' => [
+          'type' => 'datetime',
+          'readOnly' => true
+        ],
+        'createdBy' => [
+          'type' => 'link',
+          'readOnly' => true,
+          'view' => 'views/fields/user'
+        ],
+        'modifiedBy' => [
+          'type' => 'link',
+          'readOnly' => true,
+          'view' => 'views/fields/user'
+        ],
+        'assignedUser' => [
+          'type' => 'link',
+          'required' => false,
+          'view' => 'views/fields/assigned-user'
+        ],
+        'teams' => [
+          'type' => 'linkMultiple',
+          'view' => 'views/fields/teams'
+        ],
+        'phone' => [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'options' => [],
+          'isCustom' => true
+        ],
+        'email' => [
+          'type' => 'address',
+          'isCustom' => true
+        ],
+        'languages' => [
+          'type' => 'multiEnum',
+          'storeArrayValues' => true,
+          'default' => [],
+          'options' => [
+            0 => '',
+            1 => 'Amharic',
+            2 => 'English',
+            3 => 'Tigrigna',
+            4 => 'Other'
+          ],
+          'style' => [
+            '' => NULL,
+            'Amharic' => NULL,
+            'English' => NULL,
+            'Tigrigna' => NULL,
+            'Other' => NULL
+          ],
+          'isCustom' => true
+        ],
+        'bio' => [
+          'type' => 'text',
+          'rowsMin' => 2,
+          'cutHeight' => 200,
+          'isCustom' => true
+        ],
+        'available' => [
+          'notNull' => true,
+          'type' => 'bool',
+          'isCustom' => true
+        ],
+        'photo' => [
+          'type' => 'image',
+          'previewSize' => 'small',
+          'isCustom' => true
+        ],
+        'gender' => [
+          'type' => 'enum',
+          'options' => [
+            0 => 'male',
+            1 => 'Female',
+            2 => 'Other'
+          ],
+          'style' => [
+            'male' => NULL,
+            'Female' => NULL,
+            'Other' => NULL
+          ],
+          'default' => 'male',
+          'maxLength' => 100,
+          'isCustom' => true
+        ],
+        'emailStreet' => [
+          'type' => 'text',
+          'maxLength' => 255,
+          'dbType' => 'varchar'
+        ],
+        'emailCity' => [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'view' => 'views/fields/address-city',
+          'customizationOptionsDisabled' => true,
+          'customizationOptionsReferenceDisabled' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'emailState' => [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'view' => 'views/fields/address-state',
+          'customizationOptionsDisabled' => true,
+          'customizationOptionsReferenceDisabled' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'emailCountry' => [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'view' => 'views/fields/address-country',
+          'customizationOptionsDisabled' => true,
+          'customizationOptionsReferenceDisabled' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'emailPostalCode' => [
+          'type' => 'varchar',
+          'maxLength' => 40,
+          'pattern' => '$noBadCharacters'
+        ],
+        'emailMap' => [
+          'type' => 'map',
+          'notStorable' => true,
+          'orderDisabled' => true,
+          'readOnly' => true,
+          'layoutListDisabled' => true,
+          'provider' => 'Google',
+          'height' => 300,
+          'exportDisabled' => true,
+          'importDisabled' => true
+        ],
+        'streamUpdatedAt' => [
+          'type' => 'datetime',
+          'readOnly' => true,
+          'customizationReadOnlyDisabled' => true
+        ]
+      ],
+      'links' => [
+        'createdBy' => [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'modifiedBy' => [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'assignedUser' => [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'teams' => [
+          'type' => 'hasMany',
+          'entity' => 'Team',
+          'relationName' => 'entityTeam',
+          'layoutRelationshipsDisabled' => true
+        ],
+        'meetings' => [
+          'type' => 'hasMany',
+          'entity' => 'Meeting',
+          'foreign' => 'parent'
+        ],
+        'calls' => [
+          'type' => 'hasMany',
+          'entity' => 'Call',
+          'foreign' => 'parent'
+        ],
+        'tasks' => [
+          'type' => 'hasChildren',
+          'entity' => 'Task',
+          'foreign' => 'parent'
+        ],
+        'emails' => [
+          'type' => 'hasChildren',
+          'entity' => 'Email',
+          'foreign' => 'parent',
+          'layoutRelationshipsDisabled' => true
+        ],
+        'photo' => [
+          'type' => 'belongsTo',
+          'entity' => 'Attachment',
+          'skipOrmDefs' => true,
+          'utility' => true
+        ],
+        'tourPackages' => [
+          'type' => 'hasMany',
+          'relationName' => 'cTourGuideTourPackage',
+          'foreign' => 'tourGuides',
+          'entity' => 'CTourPackage',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'bookings' => [
+          'type' => 'hasMany',
+          'foreign' => 'tourGuide',
+          'entity' => 'CBooking',
+          'audited' => false,
+          'isCustom' => true
+        ]
+      ],
+      'collection' => [
+        'orderBy' => 'createdAt',
+        'order' => 'desc',
+        'sortBy' => 'createdAt',
+        'asc' => false
+      ],
+      'indexes' => [
+        'name' => [
+          'columns' => [
+            0 => 'name',
+            1 => 'deleted'
+          ]
+        ],
+        'assignedUser' => [
+          'columns' => [
+            0 => 'assignedUserId',
+            1 => 'deleted'
+          ]
+        ],
+        'createdAt' => [
+          'columns' => [
+            0 => 'createdAt'
+          ]
+        ],
+        'createdAtId' => [
+          'unique' => true,
+          'columns' => [
+            0 => 'createdAt',
+            1 => 'id'
+          ]
+        ]
+      ]
+    ],
+    'CTourInquiry' => [
+      'fields' => [
+        'name' => [
+          'type' => 'varchar',
+          'required' => true,
+          'pattern' => '$noBadCharacters'
+        ],
+        'description' => [
+          'type' => 'text'
+        ],
+        'createdAt' => [
+          'type' => 'datetime',
+          'readOnly' => true
+        ],
+        'modifiedAt' => [
+          'type' => 'datetime',
+          'readOnly' => true
+        ],
+        'createdBy' => [
+          'type' => 'link',
+          'readOnly' => true,
+          'view' => 'views/fields/user'
+        ],
+        'modifiedBy' => [
+          'type' => 'link',
+          'readOnly' => true,
+          'view' => 'views/fields/user'
+        ],
+        'assignedUser' => [
+          'type' => 'link',
+          'required' => false,
+          'view' => 'views/fields/assigned-user'
+        ],
+        'teams' => [
+          'type' => 'linkMultiple',
+          'view' => 'views/fields/teams'
+        ],
+        'email' => [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'options' => [],
+          'isCustom' => true
+        ],
+        'phone' => [
+          'type' => 'varchar',
+          'maxLength' => 100,
+          'options' => [],
+          'isCustom' => true
+        ],
+        'travelDate' => [
+          'notNull' => false,
+          'type' => 'date',
+          'isCustom' => true
+        ],
+        'groupSize' => [
+          'type' => 'int',
+          'isCustom' => true
+        ],
+        'notesSpecialRequests' => [
+          'type' => 'text',
+          'rowsMin' => 2,
+          'cutHeight' => 200,
+          'isCustom' => true
+        ],
+        'status' => [
+          'type' => 'enum',
+          'style' => [
+            'Inquiry' => NULL,
+            'Contacted' => NULL,
+            'Converted' => NULL,
+            'Dropped' => NULL
+          ],
+          'maxLength' => 100,
+          'isCustom' => true,
+          'options' => [
+            0 => 'Inquiry',
+            1 => 'Contacted',
+            2 => 'Converted',
+            3 => 'Dropped'
+          ],
+          'default' => 'Inquiry'
+        ],
+        'tourPackage' => [
+          'type' => 'link'
+        ],
+        'destination' => [
+          'type' => 'link'
+        ],
+        'travelAgent' => [
+          'type' => 'link'
+        ],
+        'streamUpdatedAt' => [
+          'type' => 'datetime',
+          'readOnly' => true,
+          'customizationReadOnlyDisabled' => true
+        ]
+      ],
+      'links' => [
+        'createdBy' => [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'modifiedBy' => [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'assignedUser' => [
+          'type' => 'belongsTo',
+          'entity' => 'User'
+        ],
+        'teams' => [
+          'type' => 'hasMany',
+          'entity' => 'Team',
+          'relationName' => 'entityTeam',
+          'layoutRelationshipsDisabled' => true
+        ],
+        'meetings' => [
+          'type' => 'hasMany',
+          'entity' => 'Meeting',
+          'foreign' => 'parent'
+        ],
+        'calls' => [
+          'type' => 'hasMany',
+          'entity' => 'Call',
+          'foreign' => 'parent'
+        ],
+        'tasks' => [
+          'type' => 'hasChildren',
+          'entity' => 'Task',
+          'foreign' => 'parent'
+        ],
+        'emails' => [
+          'type' => 'hasChildren',
+          'entity' => 'Email',
+          'foreign' => 'parent',
+          'layoutRelationshipsDisabled' => true
+        ],
+        'tourPackage' => [
+          'type' => 'belongsTo',
+          'foreign' => 'tourInquiries',
+          'entity' => 'CTourPackage',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'destination' => [
+          'type' => 'belongsTo',
+          'foreign' => 'tourInquiries',
+          'entity' => 'CDestination',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'travelAgent' => [
+          'type' => 'belongsTo',
+          'foreign' => 'tourInquiries',
+          'entity' => 'CTravelAgent',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'bookings' => [
+          'type' => 'hasMany',
+          'foreign' => 'tourInquiry',
+          'entity' => 'CBooking',
+          'audited' => false,
+          'isCustom' => true
         ]
       ],
       'collection' => [
@@ -25778,6 +26405,11 @@ return [
       'optimisticConcurrencyControl' => false
     ],
     'CTourPackage' => [
+      'creatable' => true,
+      'updatable' => true,
+      'removable' => true,
+      'importable' => true,
+      'searchable' => true,
       'fields' => [
         'name' => [
           'type' => 'varchar',
@@ -25866,6 +26498,9 @@ return [
         'destination' => [
           'type' => 'link'
         ],
+        'tourInquiries' => [
+          'type' => 'linkMultiple'
+        ],
         'priceCurrency' => [
           'type' => 'enum',
           'view' => 'views/fields/currency-list',
@@ -25950,6 +26585,21 @@ return [
           'entity' => 'CDestination',
           'audited' => false,
           'isCustom' => true
+        ],
+        'tourInquiries' => [
+          'type' => 'hasMany',
+          'foreign' => 'tourPackage',
+          'entity' => 'CTourInquiry',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'tourGuides' => [
+          'type' => 'hasMany',
+          'relationName' => 'cTourGuideTourPackage',
+          'foreign' => 'tourPackages',
+          'entity' => 'CTourGuide',
+          'audited' => false,
+          'isCustom' => true
         ]
       ],
       'collection' => [
@@ -26022,12 +26672,6 @@ return [
           'type' => 'linkMultiple',
           'view' => 'views/fields/teams'
         ],
-        'agentname' => [
-          'type' => 'text',
-          'rowsMin' => 2,
-          'cutHeight' => 200,
-          'isCustom' => true
-        ],
         'phoneNumber' => [
           'type' => 'varchar',
           'maxLength' => 100,
@@ -26041,6 +26685,9 @@ return [
           'type' => 'link'
         ],
         'bookings' => [
+          'type' => 'linkMultiple'
+        ],
+        'tourInquiries' => [
           'type' => 'linkMultiple'
         ],
         'streamUpdatedAt' => [
@@ -26092,7 +26739,7 @@ return [
         'tourPackage' => [
           'type' => 'hasMany',
           'foreign' => 'travelAgent',
-          'entity' => 'CTravelAgent',
+          'entity' => 'CTourPackage',
           'audited' => false,
           'isCustom' => true
         ],
@@ -26107,6 +26754,13 @@ return [
           'type' => 'hasMany',
           'foreign' => 'travelAgent',
           'entity' => 'CBooking',
+          'audited' => false,
+          'isCustom' => true
+        ],
+        'tourInquiries' => [
+          'type' => 'hasMany',
+          'foreign' => 'travelAgent',
+          'entity' => 'CTourInquiry',
           'audited' => false,
           'isCustom' => true
         ]
@@ -31379,6 +32033,53 @@ return [
       'afterLinkHookClassNameList' => [],
       'afterUnlinkHookClassNameList' => []
     ],
+    'CTourGuide' => [
+      'duplicateWhereBuilderClassName' => 'Espo\\Classes\\DuplicateWhereBuilders\\General',
+      'readLoaderClassNameList' => [],
+      'listLoaderClassNameList' => [],
+      'saverClassNameList' => [],
+      'selectApplierClassNameList' => [],
+      'createInputFilterClassNameList' => [],
+      'updateInputFilterClassNameList' => [],
+      'outputFilterClassNameList' => [],
+      'beforeReadHookClassNameList' => [],
+      'earlyBeforeCreateHookClassNameList' => [],
+      'beforeCreateHookClassNameList' => [],
+      'earlyBeforeUpdateHookClassNameList' => [],
+      'beforeUpdateHookClassNameList' => [],
+      'beforeDeleteHookClassNameList' => [],
+      'afterCreateHookClassNameList' => [],
+      'afterUpdateHookClassNameList' => [],
+      'afterDeleteHookClassNameList' => [],
+      'beforeLinkHookClassNameList' => [],
+      'beforeUnlinkHookClassNameList' => [],
+      'afterLinkHookClassNameList' => [],
+      'afterUnlinkHookClassNameList' => []
+    ],
+    'CTourInquiry' => [
+      'duplicateWhereBuilderClassName' => 'Espo\\Classes\\DuplicateWhereBuilders\\General',
+      'updateDuplicateCheck' => false,
+      'readLoaderClassNameList' => [],
+      'listLoaderClassNameList' => [],
+      'saverClassNameList' => [],
+      'selectApplierClassNameList' => [],
+      'createInputFilterClassNameList' => [],
+      'updateInputFilterClassNameList' => [],
+      'outputFilterClassNameList' => [],
+      'beforeReadHookClassNameList' => [],
+      'earlyBeforeCreateHookClassNameList' => [],
+      'beforeCreateHookClassNameList' => [],
+      'earlyBeforeUpdateHookClassNameList' => [],
+      'beforeUpdateHookClassNameList' => [],
+      'beforeDeleteHookClassNameList' => [],
+      'afterCreateHookClassNameList' => [],
+      'afterUpdateHookClassNameList' => [],
+      'afterDeleteHookClassNameList' => [],
+      'beforeLinkHookClassNameList' => [],
+      'beforeUnlinkHookClassNameList' => [],
+      'afterLinkHookClassNameList' => [],
+      'afterUnlinkHookClassNameList' => []
+    ],
     'CTourPackage' => [
       'duplicateWhereBuilderClassName' => 'Espo\\Classes\\DuplicateWhereBuilders\\General',
       'readLoaderClassNameList' => [],
@@ -32385,6 +33086,59 @@ return [
       'collaborators' => false,
       'assignedUsers' => false
     ],
+    'CTourGuide' => [
+      'entity' => true,
+      'layouts' => true,
+      'tab' => true,
+      'acl' => true,
+      'aclPortal' => true,
+      'aclPortalLevelList' => [
+        0 => 'all',
+        1 => 'account',
+        2 => 'contact',
+        3 => 'own',
+        4 => 'no'
+      ],
+      'customizable' => true,
+      'importable' => true,
+      'notifications' => true,
+      'stream' => true,
+      'disabled' => false,
+      'type' => 'BasePlus',
+      'module' => 'Custom',
+      'object' => true,
+      'isCustom' => true
+    ],
+    'CTourInquiry' => [
+      'entity' => true,
+      'layouts' => true,
+      'tab' => true,
+      'acl' => true,
+      'aclPortal' => true,
+      'aclPortalLevelList' => [
+        0 => 'all',
+        1 => 'account',
+        2 => 'contact',
+        3 => 'own',
+        4 => 'no'
+      ],
+      'customizable' => true,
+      'importable' => true,
+      'notifications' => true,
+      'stream' => true,
+      'disabled' => false,
+      'type' => 'BasePlus',
+      'module' => 'Custom',
+      'object' => true,
+      'isCustom' => true,
+      'statusField' => 'status',
+      'kanbanStatusIgnoreList' => NULL,
+      'stars' => false,
+      'preserveAuditLog' => false,
+      'duplicateCheckFieldList' => [],
+      'collaborators' => false,
+      'assignedUsers' => false
+    ],
     'CTourPackage' => [
       'entity' => true,
       'layouts' => true,
@@ -33160,6 +33914,32 @@ return [
           1 => 'Canceled'
         ]
       ]
+    ]
+  ],
+  'formula' => [
+    'CBooking' => [
+      'beforeSaveCustomScript' => ' agentList = [\'6828d804307680842\', \'682b74e8cec359a05\', \'682ecf26b9e1e4205\'];
+inquiryCount = record\\count(\'CBooking\');
+index = inquiryCount % array\\length(agentList);
+assignedUserId = array\\at(agentList, index);
+'
+    ],
+    'CTourInquiry' => [
+      'beforeSaveCustomScript' => 'assignedUserId = \'6828d804307680842\';// assing di
+
+
+ifThen(
+  assignedUserId != null,
+  sendEmail(
+    assignedUserId,
+    \'New Tour Inquiry Assigned\',
+    \'A new inquiry has been assigned to you. Please log in and follow up.\' + "\\n\\n" +
+    \'Inquiry Name: \' + name + "\\n" +
+    \'Preferred Travel Date: \' + string(travelDate) + "\\n" +
+    \'Contact Email: \' + email
+  )
+);
+'
     ]
   ]
 ];

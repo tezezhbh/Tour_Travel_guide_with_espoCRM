@@ -31940,21 +31940,13 @@ return [
       'status' => [
         'type' => 'varchar',
         'len' => 100,
+        'default' => 'Pending',
         'fieldType' => 'varchar'
       ],
       'paymentMethod' => [
         'type' => 'varchar',
         'len' => 100,
-        'fieldType' => 'varchar'
-      ],
-      'notes' => [
-        'type' => 'text',
-        'fieldType' => 'text'
-      ],
-      'newStatus' => [
-        'type' => 'varchar',
-        'len' => 100,
-        'default' => 'Pending',
+        'default' => 'Cash',
         'fieldType' => 'varchar'
       ],
       'streamUpdatedAt' => [
@@ -32005,6 +31997,7 @@ return [
         'index' => true,
         'attributeRole' => 'id',
         'fieldType' => 'link',
+        'default' => '6828d804307680842',
         'notNull' => false
       ],
       'assignedUserName' => [
@@ -32086,6 +32079,42 @@ return [
         'foreign' => 'name',
         'foreignType' => 'varchar'
       ],
+      'tourInquiryId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'tourInquiryName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'tourInquiry',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'tourGuideId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'tourGuideName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'tourGuide',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
       'isFollowed' => [
         'type' => 'bool',
         'notStorable' => true,
@@ -32144,6 +32173,20 @@ return [
       ]
     ],
     'relations' => [
+      'tourGuide' => [
+        'type' => 'belongsTo',
+        'entity' => 'CTourGuide',
+        'key' => 'tourGuideId',
+        'foreignKey' => 'id',
+        'foreign' => 'bookings'
+      ],
+      'tourInquiry' => [
+        'type' => 'belongsTo',
+        'entity' => 'CTourInquiry',
+        'key' => 'tourInquiryId',
+        'foreignKey' => 'id',
+        'foreign' => 'bookings'
+      ],
       'travelAgent' => [
         'type' => 'belongsTo',
         'entity' => 'CTravelAgent',
@@ -32324,6 +32367,20 @@ return [
           0 => 'travelAgentId'
         ],
         'key' => 'IDX_TRAVEL_AGENT_ID'
+      ],
+      'tourInquiryId' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'tourInquiryId'
+        ],
+        'key' => 'IDX_TOUR_INQUIRY_ID'
+      ],
+      'tourGuideId' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'tourGuideId'
+        ],
+        'key' => 'IDX_TOUR_GUIDE_ID'
       ]
     ],
     'collection' => [
@@ -32448,6 +32505,24 @@ return [
         'attributeRole' => 'nameMap',
         'fieldType' => 'linkMultiple'
       ],
+      'tourInquiriesIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'tourInquiries',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false
+      ],
+      'tourInquiriesNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false
+      ],
       'isFollowed' => [
         'type' => 'bool',
         'notStorable' => true,
@@ -32516,6 +32591,12 @@ return [
       ]
     ],
     'relations' => [
+      'tourInquiries' => [
+        'type' => 'hasMany',
+        'entity' => 'CTourInquiry',
+        'foreignKey' => 'destinationId',
+        'foreign' => 'destination'
+      ],
       'tourPackages' => [
         'type' => 'hasMany',
         'entity' => 'CTourPackage',
@@ -32660,6 +32741,903 @@ return [
           0 => 'assignedUserId'
         ],
         'key' => 'IDX_ASSIGNED_USER_ID'
+      ]
+    ],
+    'collection' => [
+      'orderBy' => 'createdAt',
+      'order' => 'DESC'
+    ]
+  ],
+  'CTourGuide' => [
+    'attributes' => [
+      'id' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'id'
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255
+      ],
+      'deleted' => [
+        'type' => 'bool',
+        'default' => false
+      ],
+      'description' => [
+        'type' => 'text',
+        'fieldType' => 'text'
+      ],
+      'createdAt' => [
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime'
+      ],
+      'modifiedAt' => [
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime'
+      ],
+      'phone' => [
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar'
+      ],
+      'languages' => [
+        'type' => 'jsonArray',
+        'default' => [],
+        'storeArrayValues' => true,
+        'fieldType' => 'jsonArray'
+      ],
+      'bio' => [
+        'type' => 'text',
+        'fieldType' => 'text'
+      ],
+      'available' => [
+        'type' => 'bool',
+        'notNull' => true,
+        'fieldType' => 'bool',
+        'default' => false
+      ],
+      'gender' => [
+        'type' => 'varchar',
+        'len' => 100,
+        'default' => 'male',
+        'fieldType' => 'varchar'
+      ],
+      'emailStreet' => [
+        'type' => 'text',
+        'dbType' => 'varchar',
+        'len' => 255,
+        'fieldType' => 'text'
+      ],
+      'emailCity' => [
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar'
+      ],
+      'emailState' => [
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar'
+      ],
+      'emailCountry' => [
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar'
+      ],
+      'emailPostalCode' => [
+        'type' => 'varchar',
+        'len' => 40,
+        'fieldType' => 'varchar'
+      ],
+      'emailMap' => [
+        'type' => 'varchar',
+        'notExportable' => true,
+        'notStorable' => true,
+        'fieldType' => 'map'
+      ],
+      'streamUpdatedAt' => [
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime'
+      ],
+      'createdById' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'createdByName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'modifiedById' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'modifiedByName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'assignedUserId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'assignedUserName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'teamsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple'
+      ],
+      'teamsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple'
+      ],
+      'photoId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => false,
+        'notNull' => false
+      ],
+      'photoName' => [
+        'type' => 'foreign',
+        'relation' => 'photo',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'isFollowed' => [
+        'type' => 'bool',
+        'notStorable' => true,
+        'notExportable' => true,
+        'default' => false
+      ],
+      'followersIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true
+      ],
+      'followersNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true
+      ],
+      'bookingsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'bookingsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'tourPackagesIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'tourPackagesNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'emailsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'emailsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'tasksIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'tasksNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'callsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'callsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'meetingsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'meetingsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ]
+    ],
+    'relations' => [
+      'photo' => [
+        'type' => 'belongsTo',
+        'entity' => 'Attachment',
+        'key' => 'photoId',
+        'foreignKey' => 'id',
+        'foreign' => NULL
+      ],
+      'bookings' => [
+        'type' => 'hasMany',
+        'entity' => 'CBooking',
+        'foreignKey' => 'tourGuideId',
+        'foreign' => 'tourGuide'
+      ],
+      'tourPackages' => [
+        'type' => 'manyMany',
+        'entity' => 'CTourPackage',
+        'relationName' => 'cTourGuideTourPackage',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => [
+          0 => 'cTourGuideId',
+          1 => 'cTourPackageId'
+        ],
+        'foreign' => 'tourGuides',
+        'indexes' => [
+          'cTourGuideId' => [
+            'columns' => [
+              0 => 'cTourGuideId'
+            ],
+            'key' => 'IDX_C_TOUR_GUIDE_ID'
+          ],
+          'cTourPackageId' => [
+            'columns' => [
+              0 => 'cTourPackageId'
+            ],
+            'key' => 'IDX_C_TOUR_PACKAGE_ID'
+          ],
+          'cTourGuideId_cTourPackageId' => [
+            'type' => 'unique',
+            'columns' => [
+              0 => 'cTourGuideId',
+              1 => 'cTourPackageId'
+            ],
+            'key' => 'UNIQ_C_TOUR_GUIDE_ID_C_TOUR_PACKAGE_ID'
+          ]
+        ]
+      ],
+      'emails' => [
+        'type' => 'hasChildren',
+        'entity' => 'Email',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent'
+      ],
+      'tasks' => [
+        'type' => 'hasChildren',
+        'entity' => 'Task',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent'
+      ],
+      'calls' => [
+        'type' => 'hasMany',
+        'entity' => 'Call',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent'
+      ],
+      'meetings' => [
+        'type' => 'hasMany',
+        'entity' => 'Meeting',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent'
+      ],
+      'teams' => [
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => [
+          0 => 'entityId',
+          1 => 'teamId'
+        ],
+        'conditions' => [
+          'entityType' => 'CTourGuide'
+        ],
+        'additionalColumns' => [
+          'entityType' => [
+            'type' => 'varchar',
+            'len' => 100
+          ]
+        ],
+        'indexes' => [
+          'entityId' => [
+            'columns' => [
+              0 => 'entityId'
+            ],
+            'key' => 'IDX_ENTITY_ID'
+          ],
+          'teamId' => [
+            'columns' => [
+              0 => 'teamId'
+            ],
+            'key' => 'IDX_TEAM_ID'
+          ],
+          'entityId_teamId_entityType' => [
+            'type' => 'unique',
+            'columns' => [
+              0 => 'entityId',
+              1 => 'teamId',
+              2 => 'entityType'
+            ],
+            'key' => 'UNIQ_ENTITY_ID_TEAM_ID_ENTITY_TYPE'
+          ]
+        ]
+      ],
+      'assignedUser' => [
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL
+      ],
+      'modifiedBy' => [
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL
+      ],
+      'createdBy' => [
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL
+      ]
+    ],
+    'indexes' => [
+      'name' => [
+        'columns' => [
+          0 => 'name',
+          1 => 'deleted'
+        ],
+        'key' => 'IDX_NAME'
+      ],
+      'assignedUser' => [
+        'columns' => [
+          0 => 'assignedUserId',
+          1 => 'deleted'
+        ],
+        'key' => 'IDX_ASSIGNED_USER'
+      ],
+      'createdAt' => [
+        'columns' => [
+          0 => 'createdAt'
+        ],
+        'key' => 'IDX_CREATED_AT'
+      ],
+      'createdAtId' => [
+        'unique' => true,
+        'columns' => [
+          0 => 'createdAt',
+          1 => 'id'
+        ],
+        'key' => 'UNIQ_CREATED_AT_ID'
+      ],
+      'createdById' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'createdById'
+        ],
+        'key' => 'IDX_CREATED_BY_ID'
+      ],
+      'modifiedById' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'modifiedById'
+        ],
+        'key' => 'IDX_MODIFIED_BY_ID'
+      ],
+      'assignedUserId' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'assignedUserId'
+        ],
+        'key' => 'IDX_ASSIGNED_USER_ID'
+      ]
+    ],
+    'collection' => [
+      'orderBy' => 'createdAt',
+      'order' => 'DESC'
+    ]
+  ],
+  'CTourInquiry' => [
+    'attributes' => [
+      'id' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'id'
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'fieldType' => 'varchar',
+        'len' => 255
+      ],
+      'deleted' => [
+        'type' => 'bool',
+        'default' => false
+      ],
+      'description' => [
+        'type' => 'text',
+        'fieldType' => 'text'
+      ],
+      'createdAt' => [
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime'
+      ],
+      'modifiedAt' => [
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime'
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar'
+      ],
+      'phone' => [
+        'type' => 'varchar',
+        'len' => 100,
+        'fieldType' => 'varchar'
+      ],
+      'travelDate' => [
+        'type' => 'date',
+        'notNull' => false,
+        'fieldType' => 'date'
+      ],
+      'groupSize' => [
+        'type' => 'int',
+        'fieldType' => 'int',
+        'len' => 11
+      ],
+      'notesSpecialRequests' => [
+        'type' => 'text',
+        'fieldType' => 'text'
+      ],
+      'status' => [
+        'type' => 'varchar',
+        'len' => 100,
+        'default' => 'Inquiry',
+        'fieldType' => 'varchar'
+      ],
+      'streamUpdatedAt' => [
+        'type' => 'datetime',
+        'notNull' => false,
+        'fieldType' => 'datetime'
+      ],
+      'createdById' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'createdByName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'createdBy',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'modifiedById' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'modifiedByName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'modifiedBy',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'assignedUserId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'assignedUserName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'assignedUser',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'teamsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'teams',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple'
+      ],
+      'teamsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple'
+      ],
+      'tourPackageId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'tourPackageName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'tourPackage',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'destinationId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'destinationName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'destination',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'travelAgentId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'index' => true,
+        'attributeRole' => 'id',
+        'fieldType' => 'link',
+        'notNull' => false
+      ],
+      'travelAgentName' => [
+        'type' => 'foreign',
+        'notStorable' => true,
+        'attributeRole' => 'name',
+        'fieldType' => 'link',
+        'relation' => 'travelAgent',
+        'foreign' => 'name',
+        'foreignType' => 'varchar'
+      ],
+      'isFollowed' => [
+        'type' => 'bool',
+        'notStorable' => true,
+        'notExportable' => true,
+        'default' => false
+      ],
+      'followersIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'notExportable' => true
+      ],
+      'followersNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'notExportable' => true
+      ],
+      'bookingsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'bookingsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'emailsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'emailsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'tasksIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'tasksNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'callsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'callsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'meetingsIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'meetingsNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ]
+    ],
+    'relations' => [
+      'bookings' => [
+        'type' => 'hasMany',
+        'entity' => 'CBooking',
+        'foreignKey' => 'tourInquiryId',
+        'foreign' => 'tourInquiry'
+      ],
+      'travelAgent' => [
+        'type' => 'belongsTo',
+        'entity' => 'CTravelAgent',
+        'key' => 'travelAgentId',
+        'foreignKey' => 'id',
+        'foreign' => 'tourInquiries'
+      ],
+      'destination' => [
+        'type' => 'belongsTo',
+        'entity' => 'CDestination',
+        'key' => 'destinationId',
+        'foreignKey' => 'id',
+        'foreign' => 'tourInquiries'
+      ],
+      'tourPackage' => [
+        'type' => 'belongsTo',
+        'entity' => 'CTourPackage',
+        'key' => 'tourPackageId',
+        'foreignKey' => 'id',
+        'foreign' => 'tourInquiries'
+      ],
+      'emails' => [
+        'type' => 'hasChildren',
+        'entity' => 'Email',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent'
+      ],
+      'tasks' => [
+        'type' => 'hasChildren',
+        'entity' => 'Task',
+        'foreignKey' => 'parentId',
+        'foreignType' => 'parentType',
+        'foreign' => 'parent'
+      ],
+      'calls' => [
+        'type' => 'hasMany',
+        'entity' => 'Call',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent'
+      ],
+      'meetings' => [
+        'type' => 'hasMany',
+        'entity' => 'Meeting',
+        'foreignKey' => 'parentId',
+        'foreign' => 'parent'
+      ],
+      'teams' => [
+        'type' => 'manyMany',
+        'entity' => 'Team',
+        'relationName' => 'entityTeam',
+        'midKeys' => [
+          0 => 'entityId',
+          1 => 'teamId'
+        ],
+        'conditions' => [
+          'entityType' => 'CTourInquiry'
+        ],
+        'additionalColumns' => [
+          'entityType' => [
+            'type' => 'varchar',
+            'len' => 100
+          ]
+        ],
+        'indexes' => [
+          'entityId' => [
+            'columns' => [
+              0 => 'entityId'
+            ],
+            'key' => 'IDX_ENTITY_ID'
+          ],
+          'teamId' => [
+            'columns' => [
+              0 => 'teamId'
+            ],
+            'key' => 'IDX_TEAM_ID'
+          ],
+          'entityId_teamId_entityType' => [
+            'type' => 'unique',
+            'columns' => [
+              0 => 'entityId',
+              1 => 'teamId',
+              2 => 'entityType'
+            ],
+            'key' => 'UNIQ_ENTITY_ID_TEAM_ID_ENTITY_TYPE'
+          ]
+        ]
+      ],
+      'assignedUser' => [
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'assignedUserId',
+        'foreignKey' => 'id',
+        'foreign' => NULL
+      ],
+      'modifiedBy' => [
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'modifiedById',
+        'foreignKey' => 'id',
+        'foreign' => NULL
+      ],
+      'createdBy' => [
+        'type' => 'belongsTo',
+        'entity' => 'User',
+        'key' => 'createdById',
+        'foreignKey' => 'id',
+        'foreign' => NULL
+      ]
+    ],
+    'indexes' => [
+      'name' => [
+        'columns' => [
+          0 => 'name',
+          1 => 'deleted'
+        ],
+        'key' => 'IDX_NAME'
+      ],
+      'assignedUser' => [
+        'columns' => [
+          0 => 'assignedUserId',
+          1 => 'deleted'
+        ],
+        'key' => 'IDX_ASSIGNED_USER'
+      ],
+      'createdAt' => [
+        'columns' => [
+          0 => 'createdAt'
+        ],
+        'key' => 'IDX_CREATED_AT'
+      ],
+      'createdAtId' => [
+        'unique' => true,
+        'columns' => [
+          0 => 'createdAt',
+          1 => 'id'
+        ],
+        'key' => 'UNIQ_CREATED_AT_ID'
+      ],
+      'createdById' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'createdById'
+        ],
+        'key' => 'IDX_CREATED_BY_ID'
+      ],
+      'modifiedById' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'modifiedById'
+        ],
+        'key' => 'IDX_MODIFIED_BY_ID'
+      ],
+      'assignedUserId' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'assignedUserId'
+        ],
+        'key' => 'IDX_ASSIGNED_USER_ID'
+      ],
+      'tourPackageId' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'tourPackageId'
+        ],
+        'key' => 'IDX_TOUR_PACKAGE_ID'
+      ],
+      'destinationId' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'destinationId'
+        ],
+        'key' => 'IDX_DESTINATION_ID'
+      ],
+      'travelAgentId' => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'travelAgentId'
+        ],
+        'key' => 'IDX_TRAVEL_AGENT_ID'
       ]
     ],
     'collection' => [
@@ -33010,6 +33988,24 @@ return [
         'foreign' => 'name',
         'foreignType' => 'varchar'
       ],
+      'tourInquiriesIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'tourInquiries',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false
+      ],
+      'tourInquiriesNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false
+      ],
       'isFollowed' => [
         'type' => 'bool',
         'notStorable' => true,
@@ -33025,6 +34021,16 @@ return [
         'type' => 'jsonObject',
         'notStorable' => true,
         'notExportable' => true
+      ],
+      'tourGuidesIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkStub' => true
+      ],
+      'tourGuidesNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkStub' => true
       ],
       'emailsIds' => [
         'type' => 'jsonArray',
@@ -33068,6 +34074,46 @@ return [
       ]
     ],
     'relations' => [
+      'tourGuides' => [
+        'type' => 'manyMany',
+        'entity' => 'CTourGuide',
+        'relationName' => 'cTourGuideTourPackage',
+        'key' => 'id',
+        'foreignKey' => 'id',
+        'midKeys' => [
+          0 => 'cTourPackageId',
+          1 => 'cTourGuideId'
+        ],
+        'foreign' => 'tourPackages',
+        'indexes' => [
+          'cTourPackageId' => [
+            'columns' => [
+              0 => 'cTourPackageId'
+            ],
+            'key' => 'IDX_C_TOUR_PACKAGE_ID'
+          ],
+          'cTourGuideId' => [
+            'columns' => [
+              0 => 'cTourGuideId'
+            ],
+            'key' => 'IDX_C_TOUR_GUIDE_ID'
+          ],
+          'cTourPackageId_cTourGuideId' => [
+            'type' => 'unique',
+            'columns' => [
+              0 => 'cTourPackageId',
+              1 => 'cTourGuideId'
+            ],
+            'key' => 'UNIQ_C_TOUR_PACKAGE_ID_C_TOUR_GUIDE_ID'
+          ]
+        ]
+      ],
+      'tourInquiries' => [
+        'type' => 'hasMany',
+        'entity' => 'CTourInquiry',
+        'foreignKey' => 'tourPackageId',
+        'foreign' => 'tourPackage'
+      ],
       'destination' => [
         'type' => 'belongsTo',
         'entity' => 'CDestination',
@@ -33263,10 +34309,6 @@ return [
         'notNull' => false,
         'fieldType' => 'datetime'
       ],
-      'agentname' => [
-        'type' => 'text',
-        'fieldType' => 'text'
-      ],
       'phoneNumber' => [
         'type' => 'varchar',
         'len' => 100,
@@ -33401,6 +34443,24 @@ return [
         'fieldType' => 'linkMultiple',
         'isLinkStub' => false
       ],
+      'tourInquiriesIds' => [
+        'type' => 'jsonArray',
+        'notStorable' => true,
+        'isLinkMultipleIdList' => true,
+        'relation' => 'tourInquiries',
+        'isUnordered' => true,
+        'attributeRole' => 'idList',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false
+      ],
+      'tourInquiriesNames' => [
+        'type' => 'jsonObject',
+        'notStorable' => true,
+        'isLinkMultipleNameMap' => true,
+        'attributeRole' => 'nameMap',
+        'fieldType' => 'linkMultiple',
+        'isLinkStub' => false
+      ],
       'isFollowed' => [
         'type' => 'bool',
         'notStorable' => true,
@@ -33459,6 +34519,12 @@ return [
       ]
     ],
     'relations' => [
+      'tourInquiries' => [
+        'type' => 'hasMany',
+        'entity' => 'CTourInquiry',
+        'foreignKey' => 'travelAgentId',
+        'foreign' => 'travelAgent'
+      ],
       'bookings' => [
         'type' => 'hasMany',
         'entity' => 'CBooking',
@@ -33474,7 +34540,7 @@ return [
       ],
       'tourPackage' => [
         'type' => 'hasMany',
-        'entity' => 'CTravelAgent',
+        'entity' => 'CTourPackage',
         'foreignKey' => 'travelAgentId',
         'foreign' => 'travelAgent'
       ],
@@ -36240,6 +37306,59 @@ return [
         ],
         'flags' => [],
         'key' => 'UNIQ_TARGET_LIST_ID_MASS_EMAIL_ID'
+      ]
+    ]
+  ],
+  'CTourGuideTourPackage' => [
+    'skipRebuild' => true,
+    'attributes' => [
+      'id' => [
+        'type' => 'id',
+        'autoincrement' => true,
+        'dbType' => 'bigint'
+      ],
+      'deleted' => [
+        'type' => 'bool',
+        'default' => false
+      ],
+      'cTourGuideId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'notNull' => false
+      ],
+      'cTourPackageId' => [
+        'len' => 17,
+        'dbType' => 'string',
+        'type' => 'foreignId',
+        'notNull' => false
+      ]
+    ],
+    'indexes' => [
+      0 => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'cTourPackageId'
+        ],
+        'flags' => [],
+        'key' => 'IDX_C_TOUR_PACKAGE_ID'
+      ],
+      1 => [
+        'type' => 'index',
+        'columns' => [
+          0 => 'cTourGuideId'
+        ],
+        'flags' => [],
+        'key' => 'IDX_C_TOUR_GUIDE_ID'
+      ],
+      2 => [
+        'type' => 'unique',
+        'columns' => [
+          0 => 'cTourPackageId',
+          1 => 'cTourGuideId'
+        ],
+        'flags' => [],
+        'key' => 'UNIQ_C_TOUR_PACKAGE_ID_C_TOUR_GUIDE_ID'
       ]
     ]
   ],

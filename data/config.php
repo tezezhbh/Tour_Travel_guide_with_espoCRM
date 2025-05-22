@@ -51,7 +51,9 @@ return [
     2 => 'CBooking',
     3 => 'CDestination',
     4 => 'CTravelAgent',
-    5 => 'CTourPackage'
+    5 => 'CTourPackage',
+    6 => 'CTourInquiry',
+    7 => 'CTourGuide'
   ],
   'quickCreateList' => [
     0 => 'Account',
@@ -64,7 +66,7 @@ return [
     7 => 'Case',
     8 => 'Email'
   ],
-  'exportDisabled' => false,
+  'exportDisabled' => true,
   'adminNotifications' => true,
   'adminNotificationsNewVersion' => true,
   'adminNotificationsCronIsNotConfigured' => true,
@@ -204,7 +206,7 @@ return [
   'noteEditThresholdPeriod' => '7 days',
   'notePinnedMaxCount' => 5,
   'emailForceUseExternalClient' => false,
-  'useWebSocket' => false,
+  'useWebSocket' => true,
   'auth2FAMethodList' => [
     0 => 'Totp'
   ],
@@ -271,8 +273,8 @@ return [
     0 => 'youtube.com',
     1 => 'google.com'
   ],
-  'cacheTimestamp' => 1747558091,
-  'microtime' => 1747558091.757777,
+  'cacheTimestamp' => 1747935514,
+  'microtime' => 1747935514.806941,
   'siteUrl' => 'http://localhost/EspoCRM-9.1.2',
   'fullTextSearchMinLength' => 4,
   'appTimestamp' => 1747507053,
@@ -280,5 +282,13 @@ return [
   'avatarsDisabled' => false,
   'scopeColorsDisabled' => false,
   'tabIconsDisabled' => false,
-  'dashletsOptions' => (object) []
+  'dashletsOptions' => (object) [],
+  'maintenanceMode' => false,
+  'cronDisabled' => false,
+  'fiscalYearShift' => 0,
+  'addressCityList' => [],
+  'addressStateList' => [],
+  'emailAddressIsOptedOutByDefault' => false,
+  'workingTimeCalendarName' => NULL,
+  'workingTimeCalendarId' => NULL
 ];

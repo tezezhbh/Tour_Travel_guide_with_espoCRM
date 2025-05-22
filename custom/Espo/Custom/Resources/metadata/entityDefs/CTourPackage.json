@@ -1,4 +1,9 @@
 {
+    "creatable": true,
+    "updatable": true,
+    "removable": true,
+    "importable": true,
+    "searchable": true,
     "fields": {
         "name": {
             "type": "varchar",
@@ -86,6 +91,9 @@
         },
         "destination": {
             "type": "link"
+        },
+        "tourInquiries": {
+            "type": "linkMultiple"
         }
     },
     "links": {
@@ -139,6 +147,21 @@
             "type": "belongsTo",
             "foreign": "tourPackages",
             "entity": "CDestination",
+            "audited": false,
+            "isCustom": true
+        },
+        "tourInquiries": {
+            "type": "hasMany",
+            "foreign": "tourPackage",
+            "entity": "CTourInquiry",
+            "audited": false,
+            "isCustom": true
+        },
+        "tourGuides": {
+            "type": "hasMany",
+            "relationName": "cTourGuideTourPackage",
+            "foreign": "tourPackages",
+            "entity": "CTourGuide",
             "audited": false,
             "isCustom": true
         }

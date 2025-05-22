@@ -529,6 +529,20 @@ return (object) [
       'delete' => 'all',
       'create' => 'yes'
     ],
+    'CTourGuide' => (object) [
+      'read' => 'all',
+      'stream' => 'all',
+      'edit' => 'all',
+      'delete' => 'all',
+      'create' => 'yes'
+    ],
+    'CTourInquiry' => (object) [
+      'read' => 'all',
+      'stream' => 'all',
+      'edit' => 'all',
+      'delete' => 'all',
+      'create' => 'yes'
+    ],
     'CTourPackage' => (object) [
       'read' => 'all',
       'stream' => 'all',
@@ -622,6 +636,8 @@ return (object) [
     'Task' => (object) [],
     'CBooking' => (object) [],
     'CDestination' => (object) [],
+    'CTourGuide' => (object) [],
+    'CTourInquiry' => (object) [],
     'CTourPackage' => (object) [],
     'CTravelAgent' => (object) []
   ],
@@ -2311,6 +2327,50 @@ return (object) [
       ]
     ],
     'CDestination' => (object) [
+      'attributes' => (object) [
+        'read' => (object) [
+          'yes' => [],
+          'no' => []
+        ],
+        'edit' => (object) [
+          'yes' => [],
+          'no' => []
+        ]
+      ],
+      'fields' => (object) [
+        'read' => (object) [
+          'yes' => [],
+          'no' => []
+        ],
+        'edit' => (object) [
+          'yes' => [],
+          'no' => []
+        ]
+      ]
+    ],
+    'CTourGuide' => (object) [
+      'attributes' => (object) [
+        'read' => (object) [
+          'yes' => [],
+          'no' => []
+        ],
+        'edit' => (object) [
+          'yes' => [],
+          'no' => []
+        ]
+      ],
+      'fields' => (object) [
+        'read' => (object) [
+          'yes' => [],
+          'no' => []
+        ],
+        'edit' => (object) [
+          'yes' => [],
+          'no' => []
+        ]
+      ]
+    ],
+    'CTourInquiry' => (object) [
       'attributes' => (object) [
         'read' => (object) [
           'yes' => [],

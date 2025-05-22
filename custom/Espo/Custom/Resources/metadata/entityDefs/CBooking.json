@@ -29,7 +29,11 @@
         "assignedUser": {
             "type": "link",
             "required": false,
-            "view": "views/fields/assigned-user"
+            "view": "views/fields/assigned-user",
+            "defaultAttributes": {
+                "assignedUserId": "6828d804307680842",
+                "assignedUserName": "Admin"
+            }
         },
         "teams": {
             "type": "linkMultiple",
@@ -46,37 +50,35 @@
         },
         "status": {
             "type": "enum",
-            "style": [],
+            "style": {
+                "Pending": null,
+                "Accepted": null,
+                "Rejected": null
+            },
             "maxLength": 100,
-            "isCustom": true
+            "isCustom": true,
+            "options": [
+                "Pending",
+                "Accepted",
+                "Rejected"
+            ],
+            "default": "Pending"
         },
         "paymentMethod": {
             "type": "enum",
-            "style": [],
-            "maxLength": 100,
-            "isCustom": true
-        },
-        "notes": {
-            "type": "text",
-            "rowsMin": 2,
-            "cutHeight": 200,
-            "isCustom": true
-        },
-        "newStatus": {
-            "type": "enum",
-            "options": [
-                "Pending",
-                "Confirmed",
-                "Cancelled"
-            ],
-            "default": "Pending",
             "style": {
-                "Pending": null,
-                "Confirmed": null,
-                "Cancelled": null
+                "Cash": null,
+                "Bank": null,
+                "Wallet": null
             },
             "maxLength": 100,
-            "isCustom": true
+            "isCustom": true,
+            "options": [
+                "Cash",
+                "Bank",
+                "Wallet"
+            ],
+            "default": "Cash"
         },
         "tourPackage": {
             "type": "link"
@@ -85,6 +87,12 @@
             "type": "link"
         },
         "travelAgent": {
+            "type": "link"
+        },
+        "tourInquiry": {
+            "type": "link"
+        },
+        "tourGuide": {
             "type": "link"
         }
     },
@@ -146,6 +154,20 @@
             "type": "belongsTo",
             "foreign": "bookings",
             "entity": "CTravelAgent",
+            "audited": false,
+            "isCustom": true
+        },
+        "tourInquiry": {
+            "type": "belongsTo",
+            "foreign": "bookings",
+            "entity": "CTourInquiry",
+            "audited": false,
+            "isCustom": true
+        },
+        "tourGuide": {
+            "type": "belongsTo",
+            "foreign": "bookings",
+            "entity": "CTourGuide",
             "audited": false,
             "isCustom": true
         }

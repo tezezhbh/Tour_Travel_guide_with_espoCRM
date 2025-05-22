@@ -1,0 +1,97 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                }
+            ],
+            [
+                {
+                    "name": "email"
+                }
+            ],
+            [
+                {
+                    "name": "phone"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "dynamicLogicStyled": null,
+        "tabBreak": false,
+        "hidden": false,
+        "noteText": null,
+        "customLabel": "Contact Info"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "tourPackage"
+                }
+            ],
+            [
+                {
+                    "name": "destination"
+                }
+            ],
+            [
+                {
+                    "name": "travelDate"
+                }
+            ],
+            [
+                {
+                    "name": "groupSize"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Travel Request"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "travelAgent"
+                }
+            ],
+            [
+                {
+                    "name": "status"
+                }
+            ],
+            [
+                {
+                    "name": "notesSpecialRequests"
+                }
+            ],
+            [
+                {
+                    "name": "description"
+                }
+            ],
+            [
+                {
+                    "name": "streamUpdatedAt"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "default",
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Status & Assignment"
+    }
+]
