@@ -1,0 +1,22 @@
+{
+    "activities": {
+        "disabled": true
+    },
+    "history": {
+        "disabled": true
+    },
+    "_delimiter_": {
+        "disabled": true
+    },
+    "tourPackages": {
+        "dynamicLogicVisible": null,
+        "style": "success",
+        "dynamicLogicStyled": null,
+        "sticked": false,
+        "index": 0
+    },
+    "stream": {
+        "sticked": false,
+        "index": 1
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "fields": {
+        "dname": "name",
+        "region": "Region",
+        "explanations": "Explanations",
+        "tourPackages": "Tour Packages",
+        "tourInquiries": "Tour Inquiries"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "tourPackages": "Tour Packages",
+        "tourInquiries": "Tour Inquiries"
+    },
+    "labels": {
+        "Create CDestination": "Create Destination"
+    }
+}

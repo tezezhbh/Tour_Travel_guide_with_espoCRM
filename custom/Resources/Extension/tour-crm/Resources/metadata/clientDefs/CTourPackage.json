@@ -1,0 +1,56 @@
+{
+    "controller": "controllers/record",
+    "boolFilterList": [
+        "onlyMy"
+    ],
+    "sidePanels": {
+        "detail": [
+            {
+                "name": "activities",
+                "reference": "activities"
+            },
+            {
+                "name": "history",
+                "reference": "history"
+            },
+            {
+                "name": "tasks",
+                "reference": "tasks"
+            }
+        ]
+    },
+    "bottomPanels": {
+        "detail": [
+            {
+                "name": "activities",
+                "reference": "activities",
+                "disabled": true
+            },
+            {
+                "name": "history",
+                "reference": "history",
+                "disabled": true
+            }
+        ]
+    },
+    "color": "#06215d",
+    "iconClass": "fas fa-boxes-packing",
+    "relationshipPanels": {
+        "bookings": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        },
+        "destination": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        },
+        "tourInquiries": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        },
+        "tourGuides": {
+            "layout": null,
+            "selectPrimaryFilterName": null
+        }
+    }
+}

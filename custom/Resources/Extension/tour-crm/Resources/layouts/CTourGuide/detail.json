@@ -1,0 +1,79 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                }
+            ],
+            [
+                {
+                    "name": "email"
+                }
+            ],
+            [
+                {
+                    "name": "phone"
+                }
+            ],
+            [
+                {
+                    "name": "gender"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "success",
+        "dynamicLogicStyled": null,
+        "tabBreak": false,
+        "hidden": false,
+        "noteText": null,
+        "customLabel": "Guide Info"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "bio"
+                }
+            ],
+            [
+                {
+                    "name": "languages"
+                }
+            ],
+            [
+                {
+                    "name": "photo"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "success",
+        "dynamicLogicStyled": null,
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Profile"
+    },
+    {
+        "rows": [
+            [
+                {
+                    "name": "available"
+                }
+            ]
+        ],
+        "dynamicLogicVisible": null,
+        "style": "success",
+        "dynamicLogicStyled": null,
+        "tabBreak": false,
+        "tabLabel": null,
+        "hidden": false,
+        "noteText": null,
+        "noteStyle": "info",
+        "customLabel": "Status"
+    }
+]

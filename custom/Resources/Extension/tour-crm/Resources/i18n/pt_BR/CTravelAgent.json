@@ -1,0 +1,10 @@
+{
+  "links": {
+    "meetings": "Reuniões",
+    "calls": "Ligações",
+    "tasks": "Tarefas"
+  },
+  "labels": {
+    "Create CTravelAgent": "Criar Travel Agent"
+  }
+}

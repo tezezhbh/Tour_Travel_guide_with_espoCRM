@@ -9,3 +9,8 @@
 [2025-05-22 17:38:06] ERROR: WebSocketSubmission: Class "ZMQContext" not found
 [2025-05-22 17:38:20] ERROR: WebSocketSubmission: Class "ZMQContext" not found
 [2025-05-22 17:38:34] ERROR: WebSocketSubmission: Class "ZMQContext" not found
+[2025-05-22 21:04:29] ERROR: (500) Unable to unzip the file data\upload\extensions\682f915d69b9a0179. :: POST /Extension/action/upload :: E:\Xamp\Install\htdocs\EspoCRM-9.1.2\application\Espo\Core\Upgrades\Actions\Base.php(187)
+[2025-05-22 21:06:50] ERROR: (500) Unable to unzip the file data\upload\extensions\682f91ea725ee6623. :: POST /Extension/action/upload :: E:\Xamp\Install\htdocs\EspoCRM-9.1.2\application\Espo\Core\Upgrades\Actions\Base.php(187)
+[2025-05-22 21:20:55] ERROR: (500) Unable to unzip the file data\upload\extensions\682f9537d16637f20. :: POST /Extension/action/upload :: E:\Xamp\Install\htdocs\EspoCRM-9.1.2\application\Espo\Core\Upgrades\Actions\Base.php(187)
+[2025-05-22 21:21:39] ERROR: (500) Unable to unzip the file data\upload\extensions\682f9563a5c5e1956. :: POST /Extension/action/upload :: E:\Xamp\Install\htdocs\EspoCRM-9.1.2\application\Espo\Core\Upgrades\Actions\Base.php(187)
+[2025-05-22 21:24:01] ERROR: (500) Unable to unzip the file data\upload\extensions\682f95f1d86283b46. :: POST /Extension/action/upload :: E:\Xamp\Install\htdocs\EspoCRM-9.1.2\application\Espo\Core\Upgrades\Actions\Base.php(187)

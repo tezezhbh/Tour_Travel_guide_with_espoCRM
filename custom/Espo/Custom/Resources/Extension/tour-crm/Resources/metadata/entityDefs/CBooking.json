@@ -1,0 +1,211 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "pattern": "$noBadCharacters"
+        },
+        "description": {
+            "type": "text"
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "assignedUser": {
+            "type": "link",
+            "required": false,
+            "view": "views/fields/assigned-user",
+            "defaultAttributes": {
+                "assignedUserId": "6828d804307680842",
+                "assignedUserName": "Admin"
+            }
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams"
+        },
+        "bookingDate": {
+            "notNull": false,
+            "type": "date",
+            "isCustom": true
+        },
+        "numberOfPeople": {
+            "type": "int",
+            "isCustom": true
+        },
+        "status": {
+            "type": "enum",
+            "style": {
+                "Pending": null,
+                "Accepted": null,
+                "Rejected": null
+            },
+            "maxLength": 100,
+            "isCustom": true,
+            "options": [
+                "Pending",
+                "Accepted",
+                "Rejected"
+            ],
+            "default": "Pending"
+        },
+        "paymentMethod": {
+            "type": "enum",
+            "style": {
+                "Cash": null,
+                "Bank": null,
+                "Wallet": null
+            },
+            "maxLength": 100,
+            "isCustom": true,
+            "options": [
+                "Cash",
+                "Bank",
+                "Wallet"
+            ],
+            "default": "Cash"
+        },
+        "tourPackage": {
+            "type": "link"
+        },
+        "contact": {
+            "type": "link"
+        },
+        "travelAgent": {
+            "type": "link"
+        },
+        "tourInquiry": {
+            "type": "link"
+        },
+        "tourGuide": {
+            "type": "link"
+        }
+    },
+    "links": {
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "entityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "meetings": {
+            "type": "hasMany",
+            "entity": "Meeting",
+            "foreign": "parent"
+        },
+        "calls": {
+            "type": "hasMany",
+            "entity": "Call",
+            "foreign": "parent"
+        },
+        "tasks": {
+            "type": "hasChildren",
+            "entity": "Task",
+            "foreign": "parent"
+        },
+        "emails": {
+            "type": "hasChildren",
+            "entity": "Email",
+            "foreign": "parent",
+            "layoutRelationshipsDisabled": true
+        },
+        "tourPackage": {
+            "type": "belongsTo",
+            "foreign": "bookings",
+            "entity": "CTourPackage",
+            "audited": true,
+            "isCustom": true
+        },
+        "contact": {
+            "type": "belongsTo",
+            "foreign": "cBookings",
+            "entity": "Contact",
+            "audited": false,
+            "isCustom": true
+        },
+        "travelAgent": {
+            "type": "belongsTo",
+            "foreign": "bookings",
+            "entity": "CTravelAgent",
+            "audited": false,
+            "isCustom": true
+        },
+        "tourInquiry": {
+            "type": "belongsTo",
+            "foreign": "bookings",
+            "entity": "CTourInquiry",
+            "audited": false,
+            "isCustom": true
+        },
+        "tourGuide": {
+            "type": "belongsTo",
+            "foreign": "bookings",
+            "entity": "CTourGuide",
+            "audited": false,
+            "isCustom": true
+        }
+    },
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "desc",
+        "textFilterFields": [
+            "name"
+        ],
+        "fullTextSearch": false,
+        "countDisabled": false
+    },
+    "indexes": {
+        "name": {
+            "columns": [
+                "name",
+                "deleted"
+            ]
+        },
+        "assignedUser": {
+            "columns": [
+                "assignedUserId",
+                "deleted"
+            ]
+        },
+        "createdAt": {
+            "columns": [
+                "createdAt"
+            ]
+        },
+        "createdAtId": {
+            "unique": true,
+            "columns": [
+                "createdAt",
+                "id"
+            ]
+        }
+    },
+    "optimisticConcurrencyControl": false
+}

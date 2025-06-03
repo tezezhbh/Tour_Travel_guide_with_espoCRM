@@ -1,0 +1,14 @@
+{
+  "name": "tour-crm",
+  "label": "Tour-Travel CRM Extension",
+  "description": "Custom Tour & Travel CRM features including Booking, Tour Packages, Web Forms, and Auto-Assignment.",
+  "author": "Halefom Hailu",
+  "version": "1.0.0",
+  "espocrm": {
+    "version": ">=7.0.0"
+  },
+  "install": [
+    "install.sql",
+    "scripts/install.php"
+  ]
+}

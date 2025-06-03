@@ -1,0 +1,34 @@
+{
+    "fields": {
+        "email": "Email",
+        "phone": "Phone",
+        "travelDate": "Travel Date",
+        "groupSize": "Group Size",
+        "notesSpecialRequests": "Notes / Special Requests",
+        "status": "Status",
+        "tourPackage": "Tour Package",
+        "destination": "Destination",
+        "travelAgent": "Travel Agent",
+        "bookings": "Bookings"
+    },
+    "links": {
+        "meetings": "Meetings",
+        "calls": "Calls",
+        "tasks": "Tasks",
+        "tourPackage": "Tour Package",
+        "destination": "Destination",
+        "travelAgent": "Travel Agent",
+        "bookings": "Bookings"
+    },
+    "labels": {
+        "Create CTourInquiry": "Create Tour Inquiry"
+    },
+    "options": {
+        "status": {
+            "Inquiry": "Inquiry",
+            "Contacted": "Contacted",
+            "Converted": "Converted",
+            "Dropped": "Dropped"
+        }
+    }
+}
